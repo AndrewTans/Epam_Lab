@@ -21,20 +21,15 @@ body{
 }
 
 main{
+    display: flex;
     margin-top: 5%;
     background: #6587d3;
     height: 550px;
     padding: 2%;
-    vertical-align: top;
 }
 
 nav{
-    display: inline-block;
-    height: 95%;
-    width: 210px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid white;
+    
 }
 
 nav p{
@@ -42,15 +37,11 @@ nav p{
 }
 
 nav li{
-    padding: 5px;
-    border: 2px solid white;
+   
 }
 
 nav ul{
-    margin: auto;
-    width: 80%;
-    padding: 10px;
-    border: 2px solid white;
+   
 }
 
 nav ul p{
@@ -62,27 +53,17 @@ nav ul li{
 }
 
 .right_main{
-    display: inline-block;
-    vertical-align: top;
     width: 650px;
 }
 
 .right_main header{
-    display: inline-block;
-    text-align: center;
-    line-height: 70px;
     border: 2px solid white;
-    padding: 10px;
     height: 75px;
     width: 617px;
-    margin-left: 12px;
 }
 
 .right_main_left{
-    display: inline-block;
     width: 415px;
-    margin: 5px;
-    padding: 5px;
     border: 3px dashed white;
 }
 
