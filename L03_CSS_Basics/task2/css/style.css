@@ -1,0 +1,233 @@
+@font-face {
+    font-family: source-sans-pro-regular;
+    src: url(D:/epam/L2/FL7-L02/font/SourceSansPro-regular.otf);
+}
+
+*{
+	margin: 0;
+}
+
+main{
+    text-align: center;
+    margin: auto;
+	width: 1192px;
+}
+
+.gl_locations{
+    margin: 50px;
+    font-family: sans-serif;
+}
+
+.offices_main{
+	position: relative;
+}
+
+.office_block_main{
+
+}
+
+.office_block{
+    position: relative;
+	vertical-align: top;
+	display: inline-block;
+    height: 278px;
+    background: white;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    transition: bottom 0.5s ease-out 0.2s;
+}
+
+.office_block:hover figcaption{
+	top: -58px;
+    transition: top 0.5s ease-out 0.2s;
+}
+
+.office_block:hover figcaption .country_name{
+	color: white;
+    transition-duration: 0.3s;
+}
+
+.office_block img{
+
+}
+
+.office_block figcaption{
+    position: absolute;
+display: block;
+    top: 220px;
+    height: 338px;
+    width: 275px;
+    background: black;
+    opacity: 0.7;
+    overflow-y: hidden;
+        transition-duration: 1.2s;
+}
+
+.office_block figcaption .country_name{
+	height: 58px;
+    color: white;
+    font-size: 40px;
+    line-height: 60px;
+    font-family: arial;
+}
+
+.office_block figcaption .city_num{
+	color: white;
+	padding-top: 50px;
+    font-size: 100px;
+        font-family: arial;
+}
+
+.office_block figcaption .city{
+	color: white;
+    font-size: 30px;
+    font-family: arial;
+}
+
+#ex{
+    display: inline-block;
+    transition: bottom 1.5s;
+    height: 278px;
+    transition: all 1s ease-in-out;
+
+}
+
+.close_ex{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 278px;
+	width: 275px;
+	margin: 10px;
+	z-index: 1;
+}
+
+#ex:target:not(:target) {
+}
+
+
+#ex:target {
+    transition: all 1s ease-in-out;
+    height: 635px;
+}
+
+#ex:target .office_block figcaption{
+    top: 280px;
+        transition-duration: 1s;
+}
+
+#ex:not(:target) .expand_offices {
+    top: 0px;
+    transition: all 1s ease-in-out;
+}
+
+#ex:target .expand_offices {
+	opacity: 1;
+    top: 307px;
+    transition: all 1s ease-in-out;
+}
+
+#ex:target .close_ex{
+    display: block;
+}
+
+
+/*Expanded block*/
+
+.white_block{
+    position: absolute;
+	display: inline-block;
+    background: white;
+	width: 98.4%;
+    height: 295px;
+    left: 10px;
+    top:0px;
+    z-index: -1;
+}
+
+.expand_offices{
+	position: absolute;
+	display: inline-block;
+    text-align: left;
+    left: 10px;
+	background: #f7f7f7;
+    padding: 4% 0 0 4%;
+	height: 275px;
+	width: 94.2%;
+	opacity: 0;
+	z-index: -2;
+	transition: top 1.5s;
+	border: 1px solid #cccccc;
+}
+
+.expand_offices:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -12px;
+    left: 120px;
+    height: 0;
+    width: 0;
+	border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+	border-bottom: 12px solid #ccc; 
+
+    
+}
+
+
+/*Expanded blocks inside start*/
+
+.expand_city_name{
+    font-family: arial;
+    font-size: 30px;
+    font-weight: 700;
+    color: #39c2d7;
+}
+
+.city_block{
+    display: inline-block;
+    width: 20%;
+    margin-top: 20px;
+    padding-left: 25px;
+    border-left: 1px solid #ccc;
+}
+
+.city_block:nth-child(2){
+    display: inline-block;
+    margin-top: 0px;
+    padding-left: 0px;
+    border-left: none;
+}
+
+.office_name{
+    font-family: arial;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #464547;
+}
+
+.office_desc{
+    font-family: arial;
+    color: #818081;
+}
+
+.city_block a{
+    display: block;
+    font-family: arial;
+    margin: 10px 0 10px 0;
+    font-style: normal;
+    font-size: 15px;
+    text-decoration: none;
+    color: #87a048;
+    font-weight: 700;
+}
+
+.office_phone{
+    font-family: arial;
+    font-weight: 300;
+    color: #575757;
+}
+
