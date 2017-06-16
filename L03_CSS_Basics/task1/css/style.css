@@ -9,31 +9,27 @@ main{
 }
 
 .text_logo{
-	margin: 5% 0 0 0;
+	margin: 10% 0 0 0;
 	text-align: center;
-	font-size: 150px;
-	font-family: source-sans-pro-regular,sans-serif,helvetica,arial;
+	font-size: 170px;
+	font-family: sans-serif;
 	color: rgb(70, 69, 71);
 	font-stretch: ultra-condensed;
 	letter-spacing: -5px;
+    transform: scaleY(1.2);
+     transform: scaleX(0.8);
 }
 
 .text_logo:before{
 	content: "<";
 	color: rgb(57, 194, 215);
 	vertical-align: middle;
-
+	font-stretch: ultra-condensed;
 }
 
 .text_logo:after{
 	content: ">";
 	color: rgb(57, 194, 215);
 	vertical-align: middle;
-}
-
-.text_logo + h3{
-	margin: 10% 0 0 0;
-	text-align: center;
-	font-size: 30px;
-	font-family: source-sans-pro-regular,sans-serif,helvetica,arial;
+    font-stretch: ultra-condensed;
 }
