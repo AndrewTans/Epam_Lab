@@ -6,51 +6,53 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<main>
 
-	<h2 class="gl_locations">OUR GLOBAL LOCATIONS</h2>
-
-	<article id="main" class="offices_main">
-        
-     	<section id="ex">
-			<a class="open_ex" href="#ex">
-		  		<figure class="office_block">
-		  		<img src="img/Italy.jpg" alt="">
-			 		<figcaption>
-			 		<p class="country_name">Italy</p>
-			 		<p class="city_num">2</p>
-			 		<p class="city">Cities</p>
-					</figcaption>
-		  		</figure>
-		  	</a>
-		  	 <a class="close_ex" href="#main"></a>
-             <div class="white_block"></div> <!--without this block - expand_office block will be visible between countries block when we click on it and animation starts, its kind of hack :) -->
-        	   <div class="expand_offices">
-                 <p class="expand_city_name">ITALY</p>
-                <div class="city_block">
-                <p class="office_name">Milano</p>
-                <span class="office_desc">Via Borgonuovo 18, Milano, Italy</span>
-                <a href="https://www.google.com/maps/place/Emmegi+Servizi+Immobiliari+Snc/@45.4717878,9.189919,19z/data=!4m13!1m7!3m6!1s0x4786c1493f1275e7:0x3cffcd13c6740e8d!2sMilan,+Italy!3b1!8m2!3d45.4654219!4d9.1859243!3m4!1s0x4786c6b38cc93155:0xb8cdf7743e68421d!8m2!3d45.4717869!4d9.1904675?hl=en" target="_blank">Map >></a>
-                <span class="office_phone">P:+39-02-63-151</span>
-                </div>
-                   
-                <div class="city_block">
-                <p class="office_name">Rome</p>
-                <span class="office_desc">Via Sommacampagna 8, Roma, Italy</span>
-                <a href="https://www.google.com/maps/place/Via+Sommacampagna,+8,+00185+Roma,+Italy/@41.905832,12.5043063,19z/data=!4m12!1m6!3m5!1s0x132f610a9eb4a7d9:0x8d4ef92eefd92e99!2sRoma+Office+Sharing+-+Uffici+arredati!8m2!3d41.905651!4d12.5045!3m4!1s0x132f610a83dd37db:0x2829ccdfbefafb54!8m2!3d41.9058448!4d12.5043931?hl=en" target="_blank">Map >></a>
-                <span class="office_phone">P:+39-06-39-770</span>
-                </div>
-               </div>
-        </section>
+<header>
+<h2 class="gl_locations">OUR GLOBAL LOCATIONS</h2><br>
+</header>
 
 
-        
-        
-        
+<main id="main" class="offices_main">
+
+    <article id="ex">
+        <a class="open_ex" href="#ex">
+		  <figure class="office_block">
+		  <img src="img/Italy.jpg" alt="">
+			 <figcaption>
+			 <h3 class="country_name">Italy</h3>
+			 <p class="city_num">2</p>
+			 <p class="city">Cities</p>
+             </figcaption>
+		  </figure>
+        </a>
+		<a class="close_ex" href="#0main"></a>
+       
+        <div class="white_block"></div> <!--without this block - expand_office block will be visible between countries block when we click on it and animation starts, its kind of hack :) -->
+
+      <!-- Expanded block start -->
+        <aside class="expand_offices"> 
+          <p class="expand_city_name">ITALY</p>
+          <a class="close_ex_inside" href="#0main">x</a>
+          <article class="city_block">
+            <h3 class="office_name">Milano</h3>
+            <span class="office_desc">Via Borgonuovo 18, Milano, Italy</span>
+            <a href="https://www.google.com/maps/place/Emmegi+Servizi+Immobiliari+Snc/@45.4717878,9.189919,19z/data=!4m13!1m7!3m6!1s0x4786c1493f1275e7:0x3cffcd13c6740e8d!2sMilan,+Italy!3b1!8m2!3d45.4654219!4d9.1859243!3m4!1s0x4786c6b38cc93155:0xb8cdf7743e68421d!8m2!3d45.4717869!4d9.1904675?hl=en" target="_blank">Map >></a>
+            <span class="office_phone">P:+39-02-63-151</span>
+          </article>
+          <article class="city_block">
+            <h3 class="office_name">Rome</h3>
+            <span class="office_desc">Via Sommacampagna 8, Roma, Italy</span>
+            <a href="https://www.google.com/maps/place/Via+Sommacampagna,+8,+00185+Roma,+Italy/@41.905832,12.5043063,19z/data=!4m12!1m6!3m5!1s0x132f610a9eb4a7d9:0x8d4ef92eefd92e99!2sRoma+Office+Sharing+-+Uffici+arredati!8m2!3d41.905651!4d12.5045!3m4!1s0x132f610a83dd37db:0x2829ccdfbefafb54!8m2!3d41.9058448!4d12.5043931?hl=en" target="_blank">Map >></a>
+            <span class="office_phone">P:+39-06-39-770</span>
+            </article>
+            </aside>
+		<!-- Expanded block end -->
+
+     </article>
 		<figure class="office_block">
 		<img src="img/Bulgaria.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Bulgaria</p>
+			<h3 class="country_name">Bulgaria</h3>
 			<p class="city_num">2</p>
 			<p class="city">Cities</p>
 			</figcaption>
@@ -58,16 +60,15 @@
 		<figure class="office_block">
 		<img src="img/Canada.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Canada</p>
+			<h3 class="country_name">Canada</h3>
 			<p class="city_num">3</p>
 			<p class="city">Cities</p>
 			</figcaption>
-			<!--<div class="test"></div>-->
 		</figure>
 		<figure class="office_block">
 		<img src="img/China.jpg" alt="">
 			<figcaption>
-			<p class="country_name">China</p>
+			<h3 class="country_name">China</h3>
 			<p class="city_num">1</p>
 			<p class="city">City</p>
 			</figcaption>
@@ -75,7 +76,7 @@
 		<figure class="office_block">
 		<img src="img/Croatia.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Croatia</p>
+			<h3 class="country_name">Croatia</h3>
 			<p class="city_num">3</p>
 			<p class="city">Cities</p>
 			</figcaption>
@@ -83,7 +84,7 @@
 		<figure class="office_block">
 		<img src="img/Czech.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Czech Republic</p>
+			<h3 class="country_name">Czech Republic</h3>
 			<p class="city_num">2</p>
 			<p class="city">Cities</p>
 			</figcaption>
@@ -91,7 +92,7 @@
 		<figure class="office_block">
 		<img src="img/Germany.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Germany</p>
+			<h3 class="country_name">Germany</h3>
 			<p class="city_num">1</p>
 			<p class="city">City</p>
 			</figcaption>
@@ -99,7 +100,7 @@
 		<figure class="office_block">
 		<img src="img/Hungary.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Hungary</p>
+			<h3 class="country_name">Hungary</h3>
 			<p class="city_num">1</p>
 			<p class="city">City</p>
 			</figcaption>
@@ -107,7 +108,7 @@
 		<figure class="office_block">
 		<img src="img/India.jpg" alt="">
 			<figcaption>
-			<p class="country_name">India</p>
+			<h3 class="country_name">India</h3>
 			<p class="city_num">2</p>
 			<p class="city">Cities</p>
 			</figcaption>
@@ -115,7 +116,7 @@
 		<figure class="office_block">
 		<img src="img/Austria.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Austria</p>
+			<h3 class="country_name">Austria</h3>
 			<p class="city_num">2</p>
 			<p class="city">Cities</p>
 			</figcaption>
@@ -123,7 +124,7 @@
 		<figure class="office_block">
 		<img src="img/Mexico.jpg" alt="">
 			<figcaption>
-			<p class="country_name">Mexico</p>
+			<h3 class="country_name">Mexico</h3>
 			<p class="city_num">1</p>
 			<p class="city">City</p>
 			</figcaption>
@@ -131,13 +132,11 @@
 		<figure class="office_block">
 		<img src="img/usa.jpg" alt="">
 			<figcaption>
-			<p class="country_name">USA</p>
+			<h3 class="country_name">USA</h3>
 			<p class="city_num">3</p>
 			<p class="city">Cities</p>
 			</figcaption>
 		</figure>
-	</article>
-
 </main>
 </body>
 </html>

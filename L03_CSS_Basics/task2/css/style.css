@@ -2,23 +2,19 @@
 	margin: 0;
 }
 
-main{
-    text-align: center;
-    margin: auto;
-	width: 1192px;
-}
-
 .gl_locations{
     margin: 50px;
+    text-align: center;
+    color: black;
     font-family: sans-serif;
 }
 
 .offices_main{
 	position: relative;
-}
-
-.office_block_main{
-
+    text-align: center;
+    margin: auto;
+    width: 1192px;
+    margin-bottom: 50px;
 }
 
 .office_block{
@@ -44,26 +40,22 @@ main{
     transition-duration: 0.3s;
 }
 
-.office_block img{
-
-}
-
 .office_block figcaption{
     position: absolute;
-display: block;
+    display: block;
     top: 220px;
     height: 338px;
     width: 275px;
     background: black;
     opacity: 0.7;
     overflow-y: hidden;
-        transition-duration: 1.2s;
+    transition-duration: 1.2s;
 }
 
 .office_block figcaption .country_name{
 	height: 58px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 60px;
     font-family: arial;
 }
@@ -72,7 +64,7 @@ display: block;
 	color: white;
 	padding-top: 50px;
     font-size: 100px;
-        font-family: arial;
+    font-family: arial;
 }
 
 .office_block figcaption .city{
@@ -86,7 +78,6 @@ display: block;
     transition: bottom 1.5s;
     height: 278px;
     transition: all 1s ease-in-out;
-
 }
 
 .close_ex{
@@ -99,10 +90,6 @@ display: block;
 	margin: 10px;
 	z-index: 3;
 }
-
-#ex:target:not(:target) {
-}
-
 
 #ex:target {
     transition: all 1s ease-in-out;
@@ -130,7 +117,6 @@ display: block;
     display: block;
 }
 
-
 /*Expanded block*/
 
 .white_block{
@@ -150,7 +136,7 @@ display: block;
     text-align: left;
     left: 10px;
 	background: #f7f7f7;
-    padding: 4% 0 0 4%;
+    padding: 3% 0 0 4%;
 	height: 275px;
 	width: 94.2%;
 	opacity: 0;
@@ -174,7 +160,6 @@ display: block;
     
 }
 
-
 /*Expanded blocks inside start*/
 
 .expand_city_name{
@@ -187,7 +172,7 @@ display: block;
 .city_block{
     display: inline-block;
     width: 20%;
-    margin-top: 20px;
+    margin-top: 35px;
     padding-left: 25px;
     border-left: 1px solid #ccc;
 }
@@ -228,3 +213,11 @@ display: block;
     color: #575757;
 }
 
+.close_ex_inside{
+    text-decoration: none;
+    margin: -65px 15px 0px 10px;
+    font-size: 20px;
+    color: #ccc;
+    float: right;
+    clear: both;
+}

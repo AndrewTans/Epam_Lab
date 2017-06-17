@@ -16,14 +16,16 @@ li{
 }
 
 body{
-    width: 927px;
-    margin: auto;
+
 }
 
 main{
-    margin-top: 5%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
     background: #6587d3;
     height: 550px;
+    width: 859px;
     padding: 2%;
     vertical-align: top;
 }
@@ -64,7 +66,7 @@ nav ul li{
 .right_main{
     display: inline-block;
     vertical-align: top;
-    width: 650px;
+    width: 620px;
 }
 
 .right_main header{
@@ -74,13 +76,13 @@ nav ul li{
     border: 2px solid white;
     padding: 10px;
     height: 75px;
-    width: 617px;
+    width: 584px;
     margin-left: 12px;
 }
 
 .right_main_left{
     display: inline-block;
-    width: 415px;
+    width: 385px;
     margin: 5px;
     padding: 5px;
     border: 3px dashed white;
@@ -105,7 +107,7 @@ nav ul li{
     line-height: 170px;
     margin-top: 10px;
     height: 170px;
-    width: 201px;
+    width: 186px;
     border: 2px solid white;
 }
 

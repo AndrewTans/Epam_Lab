@@ -16,15 +16,16 @@ li{
 }
 
 body{
-    width: 927px;
-    margin: auto;
+
 }
 
 main{
     display: flex;
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     background: #6587d3;
     height: 550px;
+    width: 859px;
     padding: 2%;
 }
 
