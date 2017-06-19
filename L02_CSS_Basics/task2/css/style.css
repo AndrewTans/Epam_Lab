@@ -158,6 +158,19 @@
     border-bottom: 12px solid #ccc;
 }
 
+.expand_offices:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 120px;
+    height: 0;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #f7f7f7;;
+}
+
 /*Expanded blocks inside start*/
 
 .expand_city_name{
