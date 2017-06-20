@@ -1,12 +1,11 @@
-@font-face{
-    font-family: fugue;
-    src: url('fonts/fugue_regular.woff');
-}
-
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Marvel');
+@import url('https://fonts.googleapis.com/css?family=Megrim');
 
 *{
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
 	margin: 0;
 }
 
@@ -52,7 +51,7 @@ header{
 }
 
 .logo_text{
-    font-family: 'Raleway', sans-serif;
+    font-family: Ubuntu;
     font-size: 45px;
     margin: 130px 90px 0 0;
     float: right;
@@ -74,12 +73,33 @@ header{
 .menu ul li{
     display:inline-block;
     margin-right: 55px;
+    overflow: hidden;
+    height: 27px;
+    cursor: pointer;
 }
 
 .menu ul li a{
+    position: relative;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     color: #1a1a1a;
+    height: 20px;
+    overflow: hidden;
+}
+
+.menu ul li a:before{
+    content: '';
+    position: absolute;
+    top: 23px;
+    left: -100px;
+    width: 100%;
+    border-bottom: 2px solid #1a1a1a;
+    transition-duration: 0.5s;
+}
+
+.menu ul li:hover a:before{
+    left: 0px;
+    transition-duration: 0.5s;
 }
 
 .main_content{
@@ -103,6 +123,8 @@ header{
 }
 
 .about_block_name_inside{
+    font-family: Megrim;
+    font-weight: 900;
     padding: 70px 0 100px 70px;
     font-size: 70px;
 }
@@ -146,7 +168,9 @@ header{
 }
 
 .second_block h3{
+    font-family: sans-serif;
     width: 500px;
+    font-weight: 300;
     margin-left: 170px;
     font-size: 40px;
 }
@@ -191,6 +215,7 @@ header{
 }
 
 .second_block_inside_text2 p{
+    font-family: Marvel;
     width: 590px;
     font-size: 25px;
     padding-right: 130px;
@@ -246,8 +271,11 @@ header{
     margin-bottom: 100px;
 }
 
-.important_text p{
+.important_text h4{
+    font-family: sans-serif;
+    font-weight: 300;
     padding-left: 95px;
+    line-height: 50px;
     font-size: 35px;
     width: 800px;
 }
@@ -325,7 +353,7 @@ header{
 
 }
 
-.wc_way_text_block p{
+.wc_way_text_block h4{
     padding-left: 145px;
     font-size: 35px;
     font-weight: 700;
@@ -356,17 +384,83 @@ header{
     z-index: 1;
 }
 
-.full_story{
+.full_story_block{
     display: block;
     text-align: center;
     margin-bottom: 100px;
 }
 
+.full_story{
+    margin: auto;
+    height: 31px;
+    width: 254px;
+    overflow: hidden;
+}
+
 .full_story a{
+    position: relative;
     color: #4c4c4c;
     font-size: 23px;
     font-weight: 700;
-    text-decoration:underline;
+}
+
+.full_story a:before{
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: -450px;
+    width: 100%;
+    border-bottom: 2px solid #4c4c4c;
+    transition: transform .6s ease-out;
+}
+
+.full_story a:after{
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 0px;
+    width: 100%;
+    border-bottom: 2px solid #4c4c4c;
+    transition: transform .6s ease-out;
+}
+
+.full_story:hover a:before{
+    border-bottom: 2px solid #4c4c4c;
+    animation: line11 1s linear;  
+}
+
+.full_story:hover a:after{
+    border-bottom: 2px solid #4c4c4c;
+    animation: line12 1s linear;  
+}
+
+@keyframes line11{
+    0%{
+    left: -450px;
+    }
+    
+    50%{
+    left: -255px;
+    }
+    
+    100%{
+    left: 0px;
+    }
+}
+
+@keyframes line12{
+    0%{
+    left: 0px;
+    }
+    
+    
+    50%{
+    left: 257px;
+    }
+    
+   100%{
+    left: 257px;  
+}
 }
 
 .third_block{
@@ -383,7 +477,7 @@ header{
     padding: 150px 190px 130px 190px;
 }
 
-.third_block_info p{
+.third_block_info h4{
     font-size: 50px;
     font-weight: 700;
 }
@@ -429,7 +523,7 @@ header{
     color: white;
 }
 
-.under_persons p{
+.under_persons h4{
     
 }
 
@@ -451,16 +545,90 @@ header{
 }
 
 .questions{
-    margin: 0 50px 0 50px;
-    padding: 70px 0 100px 0;;
+    width: 92.5%;
+    padding: 70px 0 110px 0;
+    text-align: center;   
+    margin: auto;
     border-top: 3px solid white;
-    text-align: center;
 }
 
-.questions a{
+
+.questions_inside{ 
+    padding: 0;
+    margin: 0;
+    margin: auto;
+    height: 28px;
+    width: 225px;
+   overflow: hidden;
+}
+
+
+.questions_inside a{
+    position: relative;
     font-size: 20px;
     color: white;
-    text-decoration: underline;
+
+}
+
+.questions_inside a:before{
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: -450px;
+    width: 100%;
+    
+    border-bottom: 2px solid white;
+    transition: transform .6s ease-out;
+}
+
+.questions_inside a:after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    width: 100%;
+    
+    border-bottom: 2px solid white;
+    transition: transform .6s ease-out;
+}
+
+.questions_inside:hover a:before{
+    border-bottom: 2px solid white;
+    animation: line1 1s linear;  
+}
+
+.questions_inside:hover a:after{
+    border-bottom: 2px solid white;
+    animation: line2 1s linear;  
+}
+
+@keyframes line1{
+    0%{
+    left: -450px;
+    }
+    
+    50%{
+    left: -225px;
+    }
+    
+    100%{
+    left: 0px;
+    }
+}
+
+
+@keyframes line2{
+    0%{
+    left: 0px;
+    }
+    
+    50%{
+    left: 235px;
+    }
+    
+   100%{
+    left: 235px;  
+}
 }
 
 footer{
@@ -477,13 +645,13 @@ footer{
 }
 
 .use_all_five{
+    color: white;
     font-size: 25px;
     padding-left: 50px;
 }
 
 .last_block_nav ul{
     padding: 0 120px 0 50px;
-    font-family: sans-serif;
     font-size: 20px;
     font-weight: 100;
     float: right;
@@ -493,6 +661,32 @@ footer{
 .last_block_nav ul li{
     display: inline-block; 
     margin-left: 20px;
+    overflow: hidden;
+    height: 28px;
+}
+
+.last_block_nav ul li a{
+    position: relative;
+    color: white;
+    font-size: 17px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.last_block_nav ul li a:before{
+    content: '';
+    position: absolute;
+    top: 23px;
+    left: -100px;
+    width: 100%;
+    border-bottom: 2px solid white;
+    transition-duration: 0.5s;
+}
+
+.last_block_nav ul li:hover a:before{
+    cursor: pointer;
+    left: 0px;
+    transition-duration: 0.5s;
 }
 
 .bottom_info{
@@ -502,28 +696,114 @@ footer{
 
 .bottom_info_inside{
     display: flex;
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 100px;
     font-size: 23px;
-    border-top: 3px solid white;
+    border-top: 1px solid white;
     flex-direction: row;
     justify-content: space-between;
 }
 
+.address_wrapper{
+    overflow: hidden;
+    cursor: pointer;
+}
+
 .address{
-    width: 390px;
+    position: relative;
+    line-height: 40px;
+    width: 353px;
+    font-weight: 100;
+}
+
+.address:before{
+    position: absolute;
+    content: '';
+    width: 100%; 
+    top: 40px;
+    left: -353px;
+    border-bottom: 2px solid white;
+    transition-duration: 0.5s;
+}
+
+.address:after{
+    position: absolute;
+    content: '';
+    width: 100%; 
+    top: 80px;
+    left: -353px;
+    border-bottom: 2px solid white;
+    transition-duration: 0.5s;
+}
+
+.address_wrapper:hover .address:before{
+    left: 0px;
+    transition-duration: 0.5s;
+}
+
+.address_wrapper:hover .address:after{
+    left: -110px;
+    transition-duration: 0.5s;
 }
 
 .mail_phone{
-    
+    line-height: 45px;
 }
 
-.mail_phone p:first-child{
-    
+.mail_wrapper{
+    width: 100%; 
+    text-align: center;
+    overflow: hidden;
+    height: 43px;
 }
 
-.mail_phone:nth-child(2){
-    
+.mail_wrapper p{
+    position: relative;
+    width: 100%; 
+    cursor: pointer;
+}
+
+.mail_wrapper p:after{
+    position: absolute;
+    content: '';
+    width: 100%; 
+    top: 40px;
+    left: -220px;
+    border-bottom: 2px solid white;
+    transition-duration: 0.5s;
+}
+
+.mail_wrapper:hover p:after{
+    left: 0px;
+    transition-duration: 0.5s;
+}
+
+.phone_wrapper{
+    width: 100%; 
+    text-align: center;
+    overflow: hidden;
+    height: 43px;
+}
+
+.phone_wrapper p{
+    position: relative;
+    width: 100%; 
+    cursor: pointer;
+}
+
+.phone_wrapper p:after{
+    position: absolute;
+    content: '';
+    width: 100%; 
+    top: 40px;
+    left: -220px;
+    border-bottom: 2px solid white;
+    transition-duration: 0.5s;
+}
+
+.phone_wrapper:hover p:after{
+    left: 0px;
+    transition-duration: 0.5s;
 }
 
 .links{
@@ -534,8 +814,8 @@ footer{
     margin-right: 30px;
 }
 
-.links a img{
-    
+.links a img:hover{
+    opacity: 0.5;
 }
 
 .copy{
