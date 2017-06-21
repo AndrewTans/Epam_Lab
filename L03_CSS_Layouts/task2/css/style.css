@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Audiowide');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
-@import url('https://fonts.googleapis.com/css?family=Marvel');
-@import url('https://fonts.googleapis.com/css?family=Megrim');
+@font-face {
+    font-family: fugue;
+    src: url('../fonts/font-cache.woff');
+  }
+
+ @font-face {
+    font-family: Marvel;
+    src: url('../fonts/Marvel-Regular.ttf');
+ }
 
 *{
     font-family: sans-serif;
 	margin: 0;
-}
-
-::selection{
-    color: #000000;
-    background: #c2b8b9;
 }
 
 a{
@@ -26,6 +25,11 @@ body{
 
 }
 
+::selection{
+    color: #000000;
+    background: #c2b8b9;
+}
+
 .container{
     display: block;
     width: 1366px;	
@@ -37,10 +41,7 @@ body{
 header{
     position: relative;
     background: rgb(211,211,211); /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(211,211,211,1) 0%, rgba(221,194,119,1) 32%, rgba(169,228,247,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    
+    background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%);
     height: 230px;
 }
 
@@ -51,8 +52,8 @@ header{
 }
 
 .logo_text{
-    font-family: Ubuntu;
-    font-size: 45px;
+    font-family: Marvel;
+    font-size: 55px;
     margin: 130px 90px 0 0;
     float: right;
     clear: both;
@@ -123,9 +124,9 @@ header{
 }
 
 .about_block_name_inside{
-    font-family: Megrim;
-    font-weight: 900;
-    padding: 70px 0 100px 70px;
+    font-family: fugue;
+    font-weight: 500;
+    padding: 70px 0 100px 85px;
     font-size: 70px;
 }
 
@@ -163,20 +164,26 @@ header{
     display: block;
     height: 200px;
     width: 100%;
-    top: 75px;
     z-index: 1;
+}
+
+.second_block_inside_text1 img{
+    position: absolute;
+    top: -10px;
+    left: 125px;
 }
 
 .second_block h3{
     font-family: sans-serif;
     width: 500px;
-    font-weight: 300;
+    font-weight: 500;
     margin-left: 170px;
     font-size: 40px;
 }
 
 .second_block_inside_imgs{
     position: relative;
+    top: -70px;
     height: 755px;
     margin-bottom: 100px;
 }
@@ -208,6 +215,7 @@ header{
 
 .second_block_inside_text2{
     display: flex;
+    margin-top: -50px;
     width: 100%;
     flex-direction: row;
     justify-content: flex-end;
@@ -259,10 +267,6 @@ header{
 
 .under_two_images_text h4{
     margin-bottom: 10px;
-}
-
-.under_two_images_text p{
-
 }
 
 .important_text{
@@ -464,10 +468,9 @@ header{
 }
 
 .third_block{
+    font-family: fugue;
     background: rgb(211,211,211); /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(211,211,211,1) 0%, rgba(221,194,119,1) 32%, rgba(169,228,247,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%);
 }
 
 .third_block_info{
@@ -479,7 +482,7 @@ header{
 
 .third_block_info h4{
     font-size: 50px;
-    font-weight: 700;
+    font-weight: 300;
 }
 
 .persons_main{
@@ -516,7 +519,7 @@ header{
 }
 
 .under_persons{
-    padding: 150px 190px 100px 190px;
+    padding: 150px 190px 130px 190px;
     text-align: center;
     font-size: 50px;
     font-weight: 700;
@@ -524,7 +527,7 @@ header{
 }
 
 .under_persons h4{
-    
+    font-weight: 300;
 }
 
 .brands{
@@ -537,7 +540,7 @@ header{
 }
 
 .brand{
-    padding-bottom: 250px;
+    padding-bottom: 230px;
 }
 
 .brand img{
@@ -632,10 +635,8 @@ header{
 }
 
 footer{
-        background: rgb(211,211,211); /* Old browsers */
-    background: -moz-linear-gradient(left, rgba(211,211,211,1) 0%, rgba(221,194,119,1) 32%, rgba(169,228,247,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: rgb(211,211,211);
+    background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%);
 }
 
 .last_block_nav{
