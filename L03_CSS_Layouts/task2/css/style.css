@@ -25,11 +25,6 @@ body{
 
 }
 
-::selection{
-    color: #000000;
-    background: #c2b8b9;
-}
-
 .container{
     display: block;
     width: 1366px;	
@@ -88,6 +83,7 @@ header{
     overflow: hidden;
 }
 
+/* For hover line */
 .menu ul li a:before{
     content: '';
     position: absolute;
@@ -102,6 +98,7 @@ header{
     left: 0px;
     transition-duration: 0.5s;
 }
+/* For hover line end */
 
 .main_content{
     margin-top: 100px;
@@ -164,7 +161,7 @@ header{
     display: block;
     height: 200px;
     width: 100%;
-    z-index: 1;
+    z-index: 1; /* to make text under img */
 }
 
 .second_block_inside_text1 img{
@@ -353,8 +350,7 @@ header{
 
 .wc_way_text_block{
     position: relative;
-    z-index: 2;
-
+    z-index: 2; /* to make it under img */
 }
 
 .wc_way_text_block h4{
@@ -407,6 +403,8 @@ header{
     font-size: 23px;
     font-weight: 700;
 }
+
+/* for Animation with underline(border-bottom) */
 
 .full_story a:before{
     content: '';
@@ -466,6 +464,8 @@ header{
     left: 257px;  
 }
 }
+
+/* Animation end */
 
 .third_block{
     font-family: fugue;
@@ -573,13 +573,14 @@ header{
 
 }
 
+/* For animation with line */
+
 .questions_inside a:before{
     content: '';
     position: absolute;
     top: 25px;
     left: -450px;
     width: 100%;
-    
     border-bottom: 2px solid white;
     transition: transform .6s ease-out;
 }
@@ -590,7 +591,6 @@ header{
     top: 25px;
     left: 0px;
     width: 100%;
-    
     border-bottom: 2px solid white;
     transition: transform .6s ease-out;
 }
@@ -634,8 +634,10 @@ header{
 }
 }
 
+/* animation end */
+
 footer{
-    background: rgb(211,211,211);
+    background: rgb(211,211,211); /* for old browsers */
     background: linear-gradient(to right, rgba(211,211,211,1) 0%,rgba(221,194,119,1) 32%,rgba(169,228,247,1) 100%);
 }
 
