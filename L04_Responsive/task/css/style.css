@@ -149,7 +149,6 @@ li{
 
 .img_wrapper img{
     position: absolute;
-/*    width: 100%;*/
     max-width: 100%;
 }
 
@@ -231,6 +230,11 @@ footer{
 .menu li:first-child{
     margin-left: 0px;
 }
+    
+.header_logo{
+    background: url('../img/banner.jpg') -250px 0;
+    height: 365px;
+}
 
 .logo_text{
     font-size: 30px;
@@ -279,7 +283,7 @@ footer{
 /* media screen 900 end */
 
 
-/* media screen 900px start */
+/* media screen 800px start */
 @media screen and (max-width: 800px){
 .block{
     
@@ -287,7 +291,7 @@ footer{
     
 }
 }
-/* media screen 900px end */
+/* media screen 800px end */
 
 /* media screen 610px start */
 @media screen and (max-width: 610px){
