@@ -1,0 +1,37 @@
+In this archive you can find an index.html file with provided page markup, images, some prepared scss files, and a 'design' folder with expected results.
+Your task is to generate two different css files (according to design) from a single _main.scss source file by passing into it a different values for variables defined in _variables1.scss and _variables2.scss files.
+
+Details:
+There is a scss/style1.scss file which imports _main.scss and _variables1.scss partials. This file should be compiled into css/style1.css file. The same is for scss/style2.scss, it shoud be compiled into css/style2.css file. index.html by default shoud use style1.css for styling.
+
+_main.scss file should contain all required css rules but some of css values should be taken from variables which will be defined in _variables1.scss and _variables2.scss. Example:
+
+_main.scss:
+
+$contentBackground: null !default;
+
+#content {
+  width: 960px;
+  margin: 0 auto;
+  background: $contentBackground;
+}
+
+...
+
+_variables1.scss:
+
+$contentBackground: #fff;
+
+...
+
+_variables2.scss:
+
+$contentBackground: #660;
+
+In case of using of koala-app for compiling you can find a koala-config.json config file where compilation path is already set.
+
+Expected results:
+styles1.css and style2.css are generated from source files. Page desing should match desing1.jpg. Then page is switched to use  styles2.css by changing link to <link rel="stylesheet" href="css/style2.css"> then it should match design2.css.
+scss file should use a nesting syntax.
+
+

@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font: $bodyFont;
+    background: $bodyBackground;
+    padding: 5px 70px;
+    color: $bodyColor;
+}
+
+p{
+    margin-bottom: 10px;
+}
+
+a{
+    color: $aColor;
+}
+
+#content{
+    margin: auto;
+    background: $contentBackground;
+    padding: 20px;
+    min-width: 550px;
+    max-width: 1366px;
+
+    h1{
+    color: $HColor;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    }
+
+    h2{
+    color: $HColor;
+    font-style: $h2FontStyle;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    }
+}
+
+.img-left{
+    padding: $imgPadding;
+    margin: 5px 15px 5px 0;
+    border: $imgBorder;
+    float: left;
+    clear: both;
+}
+
+.brief{
+    width: $briefWidth;
+    margin: $briefMargin;
+    font-style: italic;
+    font-weight: $briefFontWeight;
+    padding: 20px;
+    background: $briefBackground;
+    float: left;
+    clear: both;
+}
+
+.img-right{
+    display: block;
+    margin: 0 0 10px 10px;
+    padding: $imgPadding;
+    border: $imgBorder;
+    float: right;
+
+    &:after{
+    content: '';
+    clear: both;
+    }
+}
+
+table{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+
+    caption{
+        font-size: 15px;
+        text-align: right;
+        font-style: italic;
+        font-weight: $CaptionFontWeight;
+        padding: 10px 10px 10px 0;
+    }
+
+    tr {
+
+        th{
+            text-align: left;
+            background: $tableColor;
+            padding: 10px 10px 10px 15px;
+        }
+
+        td{
+            background: $tdBackground;
+            padding: 15px;
+            border-bottom: 1px solid $tableColor;
+        }
+    }
+}
