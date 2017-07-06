@@ -1,0 +1,109 @@
+$blue:   #2A74BF !default;
+$red:    #D7514C !default;
+$green:  #4D944B !default;
+$orange: #D8C11D !default;
+$grey:   #666 !default;
+$white: #fff !default;
+$fontWeight: 700 !default;
+
+*{
+	box-sizing: border-box;
+}
+
+.navbar-default {
+	
+	.navbar-nav{
+		font-weight: $fontWeight;
+
+		& > .active > a{
+			color: $white;
+			background-color: $blue;
+
+			&:hover{
+			color: $white;
+			background-color: $blue;
+			}
+		}
+		& li:hover{
+			background-color: $blue;
+
+			& a{
+			color: $white;
+			}
+		}
+	}
+}
+
+.block_header{
+	color: $blue;
+	border-color: $blue;
+	font-weight: $fontWeight;
+}
+
+.img_wrapper{
+	
+	img {
+		width: 100%;
+	}
+}
+
+.yoga_list{
+	margin-top: 15px;
+}
+
+.class_block_inside{
+	position: relative;
+	margin: 0 0 20px 0;
+	color: $white;
+
+	img{
+		max-width: 100%;
+	}
+
+	h5{
+		text-align: center;
+		font-weight: 100;
+	}
+	a{
+		position: absolute;
+		top: 0;
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.class_block_smallest{
+	@media screen and (max-width: 302px) {
+      width: 100%;
+    }
+}
+
+.class_block_red{
+	background: $red;
+	border: 1px solid $red;
+}
+
+.class_block_blue{
+	background: $blue;
+	border: 1px solid $blue;
+}
+
+.class_block_orange{
+	background: $orange;
+	border: 1px solid $orange;
+}
+
+.class_block_green{
+	background: $green;
+	border: 1px solid $green;
+}
+
+.footer{
+	background: $grey;
+
+	.footer_text{
+		color: $white;
+		padding: 15px;
+	}
+}
