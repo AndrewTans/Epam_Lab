@@ -6,11 +6,13 @@ $grey:   #666 !default;
 $white: #fff !default;
 $fontWeight: 700 !default;
 
+
 *{
 	box-sizing: border-box;
 }
 
-.navbar-default {
+// Redefined nav bootstrap styles
+.navbar-default { 
 	
 	.navbar-nav{
 		font-weight: $fontWeight;
@@ -72,13 +74,13 @@ $fontWeight: 700 !default;
 		width: 100%;
 	}
 }
-
+// to make blocks width 100% for very small devices
 .class_block_smallest{
 	@media screen and (max-width: 302px) {
       width: 100%;
     }
 }
-
+// classes for colors
 .class_block_red{
 	background: $red;
 	border: 1px solid $red;
