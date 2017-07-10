@@ -5,10 +5,10 @@ var b = prompt('Choose b value', '-3');
 var c = prompt('Choose c value', '1');
 	c = parseFloat(c);
 
-    d = (b * b) - (4 * a * c);
-    d_scr = Math.sqrt(d);
+var d = (b * b) - (4 * a * c);
+var d_scr = Math.sqrt(d);
 
-	x2 = (- (b) + d_scr) / (2 * a);
-	x1 = (- (b) - d_scr) / (2 * a);
+var x1 = (- (b) + d_scr) / (2 * a);
+var x2 = (- (b) - d_scr) / (2 * a);
 
-	alert('X1 = ' + x1 + '; X2 = ' + x2);
+console.log('X1 = ' + x1 + '; X2 = ' + x2);
