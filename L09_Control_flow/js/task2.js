@@ -52,6 +52,7 @@ if (game == true){
             attempt = 4;
             award = 0;
             triple = 1;
+            area = 5;
             } else {
             alert('Дякуємо за гру!');
             break;
@@ -67,6 +68,7 @@ if (game == true){
             attempt = 4;
             award = 0;
             triple = 1;
+            area = 5;
         } else {
 	        alert('Дякуємо за гру!');
 	        break;
@@ -78,7 +80,10 @@ if (game == true){
     	alert('Спроби скінчились!');
     	ask = confirm('Бажаєте зіграти ще раз?');
         if (ask == true){
-            attempt = 4;  
+            attempt = 4;
+            award = 0;
+            triple = 1;
+            area = 5;
         } else {
             alert('Дякуємо за гру!');
             break;
