@@ -53,6 +53,7 @@ if (game == true){
             award = 0;
             triple = 1;
             area = 5;
+            random_num = Math.floor((Math.random() * area) + 1);
             } else {
             alert('Дякуємо за гру!');
             break;
@@ -69,6 +70,7 @@ if (game == true){
             award = 0;
             triple = 1;
             area = 5;
+            random_num = Math.floor((Math.random() * area) + 1);
         } else {
 	        alert('Дякуємо за гру!');
 	        break;
@@ -84,6 +86,7 @@ if (game == true){
             award = 0;
             triple = 1;
             area = 5;
+            random_num = Math.floor((Math.random() * area) + 1);
         } else {
             alert('Дякуємо за гру!');
             break;
