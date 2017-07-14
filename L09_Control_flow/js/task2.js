@@ -3,7 +3,7 @@ var money = 0;
 var area = 5;
 var triple = 1; // triple award or not
 var ask;
-var random_num = Math.floor((Math.random() * area) + 1);
+var random_num = Math.floor(Math.random() * area);
 var attempt = 0;
 
 var game = confirm('Бажаєте почати гру?');
@@ -35,7 +35,7 @@ if (game == true){
             attempt = 4;  
             triple *= 3; // if yes then award will be triple
             area *= 2; // now it will be from 1 to 10
-            random_num = Math.floor((Math.random() * area) + 1);
+            random_num = Math.floor(Math.random() * area);
             continue;
         } 
 
@@ -53,7 +53,7 @@ if (game == true){
             award = 0;
             triple = 1;
             area = 5;
-            random_num = Math.floor((Math.random() * area) + 1);
+            random_num = Math.floor(Math.random() * area);
             } else {
             alert('Дякуємо за гру!');
             break;
@@ -70,7 +70,7 @@ if (game == true){
             award = 0;
             triple = 1;
             area = 5;
-            random_num = Math.floor((Math.random() * area) + 1);
+            random_num = Math.floor(Math.random() * area);
         } else {
 	        alert('Дякуємо за гру!');
 	        break;
@@ -86,7 +86,7 @@ if (game == true){
             award = 0;
             triple = 1;
             area = 5;
-            random_num = Math.floor((Math.random() * area) + 1);
+            random_num = Math.floor(Math.random() * area);
         } else {
             alert('Дякуємо за гру!');
             break;
