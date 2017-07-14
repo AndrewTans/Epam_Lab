@@ -11,7 +11,7 @@ var game = confirm('Бажаєте почати гру?');
 if (game == true){
     for (attempt = 3; attempt > 0; attempt--){
     do {
-	   var user_num = prompt(`Спроба: ${4 - attempt}; \n Введіть число від 0 до ${area}`);
+	   var user_num = prompt(`Спроба: ${4 - attempt}; \n Введіть число від 0 до ${area}`, '');
 	   user_num = parseInt(user_num);
 
     if (isNaN(user_num) == true){
