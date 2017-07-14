@@ -11,7 +11,7 @@ var game = confirm('Бажаєте почати гру?');
 if (game == true){
     for (attempt = 3; attempt > 0; attempt--){
     do {
-	   var user_num = prompt(`Спроба: ${4 - attempt}; \n Введіть число від 0 до ${area} \n ----- рандомне число ----- (підказка для перевірки): ${random_num}`, 5);
+	   var user_num = prompt(`Спроба: ${4 - attempt}; \n Введіть число від 0 до ${area}`);
 	   user_num = parseInt(user_num);
 
     if (isNaN(user_num) == true){
@@ -29,7 +29,7 @@ if (game == true){
         }
 
         alert(`Ви вгадали з ${4 - attempt} спроби! Ваш виграш: ${award} доларів`);
-        ask = confirm('Do you want to continue?');
+        ask = confirm('Бажаєте продовжити?');
 
         if (ask == true){
             attempt = 4;  
