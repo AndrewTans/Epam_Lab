@@ -32,7 +32,7 @@ gameStart = confirm('Бажаєте почати гру?');
 function attempts(){
 for (attempt = 3; attempt > 0; attempt--){
 	do {
-	   var user_num = parseInt(prompt(`Спроба: ${4 - attempt}; \nВведіть число від 0 до ${area} ${random_num}`, ''));
+	   var user_num = parseInt(prompt(`Спроба: ${4 - attempt}; \nВведіть число від 0 до ${area}`, ''));
     	if (isNaN(user_num) == true){
     		alert('Будь-ласка, введіть число');
 		}
