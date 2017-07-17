@@ -32,7 +32,7 @@ gameStart = confirm('Бажаєте почати гру?');
 function attempts(){
 for (attempt = 3; attempt > 0; attempt--){
 	do {
-	   var user_num = parseInt(prompt(`Спроба: ${4 - attempt}; \nВведіть число від 0 до ${area}`, ''));
+	   var user_num = parseInt(prompt(`Спроба: ${4 - attempt}; \nВведіть число від 0 до ${area} ${random_num}`, ''));
     	if (isNaN(user_num) == true){
     		alert('Будь-ласка, введіть число');
 		}
@@ -54,23 +54,17 @@ switch (attempt){
 	case 3:
 		award += (10 * triple);
 		alert (`Ви вгадали з першої спроби! Ваш виграш: ${award} доларів`);
-		playMore();
 	break;
 	case 2:
 		award += (5 * triple);
 		alert (`Ви вгадали з другої спроби! Ваш виграш: ${award} доларів`);
-		playMore();
 	break;
 	case 1:
 		award += (2 * triple);
 		alert (`Ви вгадали з третьої спроби! Ваш виграш: ${award} доларів`);
-		playMore();
 	break;
 	case 0:
 		award = 0;
-		triple = 1;
-		area = 5;
-		playMore();
 	break;
 }
 }
@@ -100,6 +94,7 @@ while (game == true){
 rundomNum();
 attempts();
 ifGuessedNumber();
+playMore();
 }
 
 }
