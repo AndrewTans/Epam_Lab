@@ -1,4 +1,3 @@
-
 function guessingGame(){
 	
 var award = 0;
@@ -9,9 +8,6 @@ var user_num = 0;
 var random_num;
 var attempt = 0;
 var game;
-
-
-
 
 
 // functions list
@@ -30,62 +26,62 @@ gameStart = confirm('Бажаєте почати гру?');
 }
 
 function attempts(){
-for (attempt = 3; attempt > 0; attempt--){
-	do {
-	   var user_num = parseInt(prompt(`Спроба: ${4 - attempt}; \nВведіть число від 0 до ${area}`, ''));
-    	if (isNaN(user_num) == true){
+	for (attempt = 3; attempt > 0; attempt--){
+		do {
+	   		var user_num = parseInt(prompt(`Спроба: ${4 - attempt}; \nВведіть число від 0 до ${area}`, ''));
+    		if (isNaN(user_num) == true){
     		alert('Будь-ласка, введіть число');
 		}
-	} while (isNaN(user_num) == true);
-	if (user_num < random_num){
-		alert(`Недобор, у вас залишилось ${attempt-1} спроб`);
-		continue;
-	} else if (user_num > random_num){
-		alert(`Перебор, у вас залишилось ${attempt-1} спроб`);
-		continue;
-	} else {
-		break;
+		} while (isNaN(user_num) == true);
+		if (user_num < random_num){
+			alert(`Недобор, у вас залишилось ${attempt-1} спроб`);
+			continue;
+		} else if (user_num > random_num){
+			alert(`Перебор, у вас залишилось ${attempt-1} спроб`);
+			continue;
+		} else {
+			break;
+		}
 	}
-}
 }
 
 function ifGuessedNumber(){
-switch (attempt){
-	case 3:
-		award += (10 * triple);
-		alert (`Ви вгадали з першої спроби! Ваш виграш: ${award} доларів`);
-	break;
-	case 2:
-		award += (5 * triple);
-		alert (`Ви вгадали з другої спроби! Ваш виграш: ${award} доларів`);
-	break;
-	case 1:
-		award += (2 * triple);
-		alert (`Ви вгадали з третьої спроби! Ваш виграш: ${award} доларів`);
-	break;
-	case 0:
-		award = 0;
-	break;
-}
+	switch (attempt){
+		case 3:
+			award += (10 * triple);
+			alert (`Ви вгадали з першої спроби! Ваш виграш: ${award} доларів`);
+		break;
+		case 2:
+			award += (5 * triple);
+			alert (`Ви вгадали з другої спроби! Ваш виграш: ${award} доларів`);
+		break;
+		case 1:
+			award += (2 * triple);
+			alert (`Ви вгадали з третьої спроби! Ваш виграш: ${award} доларів`);
+		break;
+		case 0:
+			award = 0;
+		break;
+	}
 }
 
 function playMore(){
-if (attempt > 0){
-	game = confirm('Бажаєте продовжити гру?');
-} else {
-	game = confirm('Бажаєте зіграти ще раз?');
-}
-if (game == true) {
-	if (attempt !== 0){
-		triple *= 3;
-		area *= 2;
+	if (attempt > 0){
+		game = confirm('Бажаєте продовжити гру?');
 	} else {
-		triple = 1;
-		area = 5;
+		game = confirm('Бажаєте зіграти ще раз?');
 	}
-} else {
-	alert(`Дякуємо за гру! Ваш виграш: ${award} доларів!`);
-}
+	if (game == true) {
+		if (attempt !== 0){
+			triple *= 3;
+			area *= 2;
+		} else {
+			triple = 1;
+			area = 5;
+		}
+	} else {
+		alert(`Дякуємо за гру! Ваш виграш: ${award} доларів!`);
+	}
 }
 // end of functions
 
@@ -100,4 +96,3 @@ playMore();
 }
 
 guessingGame();
-
