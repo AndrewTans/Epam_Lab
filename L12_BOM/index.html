@@ -190,19 +190,23 @@ window.addEventListener('hashchange', function() {
     noSurname();
 
     function pageChange() {
+
         clearStudentsList();
         showLoader('show');
         var timerAnim = setTimeout(showLoader, 2000);
+
         if (location.hash == null) {
             setTimeout(function() {
                 renderStudents(students);
             }, 2000);
+
         } else if (location.hash == '') {
             clearStudentInfo();
             setTimeout(function() {
                 clearStudentInfo();
                 renderStudents(students);
             }, 2000);
+            
         } else {
             setTimeout(function() {
                 renderStudentInfo(findStudentByLastName(location.hash));
