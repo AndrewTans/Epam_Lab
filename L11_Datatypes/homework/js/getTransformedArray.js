@@ -1,7 +1,7 @@
-function getTransformedArray(arr, fn){
+function getTransformedArray(arr, callback){
 	var tempArr = [];
 	forEach(arr, function(el){
-		tempArr.push(fn(el));
+		tempArr.push(callback(el));
 	});
 	return tempArr;
 }
