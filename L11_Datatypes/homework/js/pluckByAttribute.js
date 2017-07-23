@@ -1,7 +1,8 @@
 function pluckByAttribute (array, key){
-	return getTransformedArray(array, function(item){
+	var result = getTransformedArray(array, function(item){
 		return item[key];
 	});
+	return result;
 }
 
 var presidents = [{ name: "George", surname: "Kush"} ,
