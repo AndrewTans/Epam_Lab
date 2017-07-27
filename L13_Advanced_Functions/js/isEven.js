@@ -4,6 +4,5 @@ function isEven(n) {
 		n != 1 ? isEven(n - 2) :
 		false;
 }
-// console.log(isEven(5));
 
 module.exports = isEven;

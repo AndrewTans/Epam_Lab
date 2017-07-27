@@ -14,5 +14,3 @@ function addPropToNumber(number) {
 var bound = addPropToNumber.bindMe({
 	prop: 9
 });
-
-// console.log(bound(1));

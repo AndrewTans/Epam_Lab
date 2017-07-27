@@ -18,7 +18,4 @@ const yellGreeting = compose(
 	classyGreeting,
 );
 
-console.log(yellGreeting('James', 'Bond'));
-
-
 module.exports = compose;

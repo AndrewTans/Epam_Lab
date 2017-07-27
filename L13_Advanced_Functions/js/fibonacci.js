@@ -1,23 +1,19 @@
-function fibonacci(n) {
-	if (n <= 1) {
-		return n;
-	} else {
-		return fibonacci(n - 1) + fibonacci(n - 2);
-	}
-}
+function mainFib(n) {
+	var storage = [];
 
-function cacheFunc(fn) {
-	var cache = [];
-	return function(n) {
-		if (cache[n] === undefined) {
-			cache[n] = fn(n);
+	function fib(n) {
+
+		if (n in storage) {
+			return storage[n];
+		} else if (n <= 1) {
+			return n;
+		} else {
+			return storage[n] = fib(n - 1) + fib(n - 2);
 		}
-		return cache[n];
 	}
-}
+	return fib;
+};
 
-fibonacci = cacheFunc(fibonacci);
-// console.log(fibonacci(50));
-
+var fibonacci = mainFib();
 
 module.exports = fibonacci;

@@ -3,6 +3,5 @@ function smallest() {
 		return Math.min(a, b);
 	});
 }
-// console.log(smallest(2, 0.1, -5, 100, 3));
 
 module.exports = smallest;

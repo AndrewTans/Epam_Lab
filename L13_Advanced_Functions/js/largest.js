@@ -4,6 +4,4 @@ function largest() {
 	});
 }
 
-// console.log(largest(1, 5, 100, 3));
-
 module.exports = largest;
