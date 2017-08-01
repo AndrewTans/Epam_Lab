@@ -1,7 +1,7 @@
 (function CasinoGame() {
 
     function Casino(slotMachines, initial_money) {
-        this.machine = [];
+        this.machineArr = [];
 
         if (parseInt(initial_money) != initial_money) {
             console.log('Sorry but we dont accept coints less then 1 dollar!');
@@ -17,7 +17,7 @@
         let luckyRandom = Math.floor(Math.random() * slotMachines);
         let tempMoney;
         let moneyForFirstMachine = 0;
-        while (parseInt(initial_money / slotMachines) != (initial_money / slotMachines)) {
+        while ( parseInt(initial_money / slotMachines) != (initial_money / slotMachines) ) {
             initial_money--;
             moneyForFirstMachine++;
         }
@@ -28,27 +28,22 @@
             } else {
                 tempMoney = equalMoney;
             }
-            this.machine[i] = new SlotMachine(tempMoney);
-            this.machine[i].machineNumber = i + 1;
+            this.machineArr[i] = new SlotMachine(tempMoney);
+            this.machineArr[i].machineNumber = i + 1;
             if (luckyRandom === i) {
-                this.machine[i].isLucky = true;
+                this.machineArr[i].isLucky = true;
             } else {
-                this.machine[i].isLucky = false;
+                this.machineArr[i].isLucky = false;
             }
-            console.log(`Added machine number: ${this.machine[i].machineNumber}, Lucky: ${this.machine[i].isLucky}, money: ${this.machine[i].moneyMachine}$`);
+            console.log(`Added machine number: ${this.machineArr[i].machineNumber}, Lucky: ${this.machineArr[i].isLucky}, money: ${this.machineArr[i].moneyMachine}$`);
         };
-        console.log(this.machine);
-
-
-        this.slotMachines = slotMachines;
-        this.initial_money = initial_money;
-
+        console.log(this.machineArr);
 
 
         this.getTotalMoneyCasino = function() {
             var sum = 0;
-            for (let i = 0; i < this.machine.length; i++) {
-                sum += this.machine[i].moneyMachine;
+            for (let i = 0; i < this.machineArr.length; i++) {
+                sum += this.machineArr[i].moneyMachine;
             }
             console.log(`Total money in Casino: ${sum}`);
             return this;
@@ -60,36 +55,36 @@
         }
 
         this.addNewMachine = function() {
-            var maxMoney = this.machine[0].moneyMachine;
-            for (let i = 0; i < this.machine.length; i++) {
-                if (maxMoney < this.machine[i].moneyMachine) {
-                    maxMoney = this.machine[i].moneyMachine
+            var maxMoney = this.machineArr[0].moneyMachine;
+            for (let i = 0; i < this.machineArr.length; i++) {
+                if (maxMoney < this.machineArr[i].moneyMachine) {
+                    maxMoney = this.machineArr[i].moneyMachine
                 }
             }
 
-            var newNum = this.machine.length;
+            var newNum = this.machineArr.length;
             var halfMoney = (maxMoney / 2) ^ 0;
-            this.machine[newNum] = new SlotMachine(halfMoney);
-            this.machine[newNum].machineNumber = newNum + 1;
-            this.machine[newNum].isLucky = false;
-            console.log('added machine with number: ' + this.machine[newNum].machineNumber)
+            this.machineArr[newNum] = new SlotMachine(halfMoney);
+            this.machineArr[newNum].machineNumber = newNum + 1;
+            this.machineArr[newNum].isLucky = false;
+            console.log('added machine with number: ' + this.machineArr[newNum].machineNumber)
             return this;
         }
 
 
         this.removeMachine = function(delId) {
             var machine_was_found;
-            for (let i = 0; i < this.machine.length; i++) {
-                if (delId == this.machine[i].machineNumber) {
-                    machine_was_found = this.machine[i].machineNumber;
+            for (let i = 0; i < this.machineArr.length; i++) {
+                if (delId == this.machineArr[i].machineNumber) {
+                    machine_was_found = this.machineArr[i].machineNumber;
                     console.log('you removed machine with number ' + delId)
-                    this.machine.splice(i, 1);
+                    this.machineArr.splice(i, 1);
                 }
             }
             if (machine_was_found == null) {
                 console.log('Unable to find machine with number: ' + delId);
             }
-            console.log(this.machine);
+            console.log(this.machineArr);
             return this;
         }
 
@@ -98,33 +93,33 @@
             let sumTemp = 0;
             let moneyTaker = moneyTake;
             let maxMoney;
-            for (let i = 0; i < this.machine.length; i++) {
-                sumTemp += this.machine[i].moneyMachine;
+            for (let i = 0; i < this.machineArr.length; i++) {
+                sumTemp += this.machineArr[i].moneyMachine;
 
             }
-            console.log(sumTemp);
+
             if (moneyTake > sumTemp) {
                 console.log(`You can't take so much. Casino has only: ${sumTemp}$`);
                 return false;
             }
 
-            this.machine = this.machine.sort(function(a, b) {
+            this.machineArr = this.machineArr.sort(function(a, b) {
                 return b.moneyMachine - a.moneyMachine;
             });
 
-            for (let i = 0; i < this.machine.length; i++) {
-                if (moneyTaker >= this.machine[i].moneyMachine) {
-                    moneyTaker = moneyTaker - this.machine[i].moneyMachine;
-                    this.machine[i].moneyMachine = 0;
+            for (let i = 0; i < this.machineArr.length; i++) {
+                if (moneyTaker >= this.machineArr[i].moneyMachine) {
+                    moneyTaker = moneyTaker - this.machineArr[i].moneyMachine;
+                    this.machineArr[i].moneyMachine = 0;
                     continue;
                 } else if (moneyTaker > 0) {
-                    this.machine[i].moneyMachine -= moneyTaker;
+                    this.machineArr[i].moneyMachine -= moneyTaker;
                     moneyTaker = 0;
                     continue;
                 }
             }
             console.log(`You took ${moneyTake} from machines. Current balance: ${sumTemp - moneyTake}`);
-            this.machine = this.machine.sort(function(a, b) {
+            this.machineArr = this.machineArr.sort(function(a, b) {
                 return a.machineNumber - b.machineNumber;
             });
             return this;
@@ -137,7 +132,6 @@
         this.moneyMachine = initial_money_machine;
 
         this.getTotalMoneyMachine = function() {
-            console.log(this.machineNumber + ' ' + this.isLucky);
             console.log(`Total amount of money in machine number ${this.machineNumber}: ${this.moneyMachine}$`);
             return this;
         }
@@ -155,7 +149,6 @@
 
         this.putMoneyToMachine = function(putMoney) {
             this.moneyMachine += putMoney;
-            console.log(putMoney);
             console.log(`You have put ${putMoney}$ to machine number ${this.machineNumber}`);
             console.log(`Current balance in machine number ${this.machineNumber}: ${this.moneyMachine}`);
             return this;
@@ -221,19 +214,8 @@
 
         var Casik = new Casino(machineNumber, startMoney);
         Casik.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money);
-        Casik.machine[randomMachine].getTotalMoneyMachine(money).takeMoneyFromMachine(money).putMoneyToMachine(money).play(money);
+        Casik.machineArr[randomMachine].getTotalMoneyMachine(money).takeMoneyFromMachine(money).putMoneyToMachine(money).play(money);
         Casik.getTotalMoneyCasino();
-
-        // Casik.getTotalMoneyCasino();
-        // Casik.getTotalMachines();
-        // Casik.addNewMachine();
-        // Casik.removeMachine(randomMachine);
-        // Casik.takeCasinoMoney(money);
-        // Casik.machine[randomMachine].getTotalMoneyMachine(money);
-        // Casik.machine[randomMachine].takeMoneyFromMachine(money);
-        // Casik.machine[randomMachine].putMoneyToMachine(money);
-        // Casik.machine[randomMachine].play(money);
-        // Casik.getTotalMoneyCasino();
     }
 
     demonstration(5);
