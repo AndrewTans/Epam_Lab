@@ -3,8 +3,8 @@
     function Casino(slotMachines, initial_money) {
         this.machineArr = [];
 
-        if (parseInt(initial_money) != initial_money) {
-            console.log('Sorry but we dont accept coints less then 1 dollar!');
+        if (parseInt(initial_money) != initial_money || parseInt(slotMachines) != slotMachines || slotMachines < 1) {
+            console.log('Sorry, but it must be positive integer!');
             return false;
         } else if (initial_money < slotMachines) {
             console.log('You should pass minimum 1 dollar for each machine!');
@@ -13,6 +13,7 @@
             console.log('Sorry, it must be a number!');
             return false;
         }
+
 
         let luckyRandom = Math.floor(Math.random() * slotMachines);
         let tempMoney;
@@ -43,6 +44,7 @@
 
         this.getTotalMoneyCasino = function() {
             var sum = 0;
+
             for (let i = 0; i < this.machineArr.length; i++) {
                 sum += this.machineArr[i].moneyMachine;
             }
@@ -57,15 +59,17 @@
 
         this.addNewMachine = function() {
             var maxMoney = this.machineArr[0].moneyMachine;
+            var newNum = this.machineArr.length;
+            var tempNum = newNum + 1;
+            var halfMoney;
+
             for (let i = 0; i < this.machineArr.length; i++) {
                 if (maxMoney < this.machineArr[i].moneyMachine) {
                     maxMoney = this.machineArr[i].moneyMachine
                 }
             }
 
-            var newNum = this.machineArr.length;
-            var tempNum = newNum + 1;
-            var halfMoney = (maxMoney / 2) ^ 0;
+            halfMoney = (maxMoney / 2) ^ 0;
             this.machineArr[newNum] = new SlotMachine(halfMoney);
             for (let i = 0; i < newNum; i++) {
                 // to make unique number
