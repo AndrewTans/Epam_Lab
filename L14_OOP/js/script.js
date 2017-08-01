@@ -17,7 +17,7 @@
         let luckyRandom = Math.floor(Math.random() * slotMachines);
         let tempMoney;
         let moneyForFirstMachine = 0;
-        while ( parseInt(initial_money / slotMachines) != (initial_money / slotMachines) ) {
+        while (parseInt(initial_money / slotMachines) != (initial_money / slotMachines)) {
             initial_money--;
             moneyForFirstMachine++;
         }
@@ -63,11 +63,19 @@
             }
 
             var newNum = this.machineArr.length;
+            var tempNum = newNum + 1;
             var halfMoney = (maxMoney / 2) ^ 0;
             this.machineArr[newNum] = new SlotMachine(halfMoney);
-            this.machineArr[newNum].machineNumber = newNum + 1;
+            for (let i = 0; i < newNum; i++) {
+                // to make unique number
+                if (this.machineArr[i].machineNumber === tempNum) {
+                    tempNum++;
+                    i = 0;
+                }
+            }
+            this.machineArr[newNum].machineNumber = tempNum;
             this.machineArr[newNum].isLucky = false;
-            console.log('added machine with number: ' + this.machineArr[newNum].machineNumber)
+            console.log(`added machine with number: ${this.machineArr[newNum].machineNumber}. Machine balance: ${this.machineArr[newNum].moneyMachine}$`);
             return this;
         }
 
@@ -212,10 +220,11 @@
         let money = Math.floor(Math.random() * 5000);
         let randomMachine = Math.floor(Math.random() * machineNumber);
 
-        var Casik = new Casino(machineNumber, startMoney);
-        Casik.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money);
-        Casik.machineArr[randomMachine].getTotalMoneyMachine(money).takeMoneyFromMachine(money).putMoneyToMachine(money).play(money);
-        Casik.getTotalMoneyCasino();
+        var CasinoDemo = new Casino(machineNumber, startMoney);
+        CasinoDemo.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money);
+        CasinoDemo.machineArr[randomMachine].getTotalMoneyMachine(money).takeMoneyFromMachine(money).putMoneyToMachine(money).play(money);
+        CasinoDemo.getTotalMoneyCasino();
+
     }
 
     demonstration(5);
