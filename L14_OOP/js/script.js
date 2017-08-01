@@ -53,7 +53,7 @@
 		}
 
 		this.getTotalMachines = function() {
-			console.log(`Total Slot Machines in Casino: ${this.machineArr.length}`);
+			console.log(`Total SlotMachines in Casino: ${this.machineArr.length}`);
 			return this;
 		}
 
@@ -80,7 +80,7 @@
 			}
 			this.machineArr[newNum].machineNumber = tempNum;
 			this.machineArr[newNum].isLucky = false;
-			console.log(`added machine with number: ${this.machineArr[newNum].machineNumber}. Machine balance: ${this.machineArr[newNum].moneyMachine}$`);
+			console.log(`Added machine with number: ${this.machineArr[newNum].machineNumber}. Machine balance: ${this.machineArr[newNum].moneyMachine}$`);
 			return this;
 		}
 
@@ -92,7 +92,7 @@
 				for (let i = 0; i < this.machineArr.length; i++) {
 					if (delId == this.machineArr[i].machineNumber) {
 						machine_was_found = this.machineArr[i].machineNumber;
-						console.log('you removed machine with number ' + delId)
+						console.log(`You removed machine with number ${delId}`)
 						this.machineArr.splice(i, 1);
 					}
 				}
@@ -172,10 +172,10 @@
 
 			if (checkIfNumberM(takeMoneyFromM) === true) {
 				if (takeMoneyFromM > this.moneyMachine) {
-					console.log(`You cant take so much, this machine has only ${this.moneyMachine}$`);
+					console.log(`You couldn't take so much, this machine has only ${this.moneyMachine}$`);
 				} else {
 					this.moneyMachine -= takeMoneyFromM;
-					console.log(`You have taken ${takeMoneyFromM}$ from machine number ${this.machineNumber}`);
+					console.log(`You took ${takeMoneyFromM}$ from machine number ${this.machineNumber}`);
 					console.log(`Current balance in machine number ${this.machineNumber}: ${this.moneyMachine}`);
 				}
 			}
@@ -186,7 +186,7 @@
 
 			if (checkIfNumberM(putMoney) === true) {
 				this.moneyMachine += putMoney;
-				console.log(`You have put ${putMoney}$ to machine number ${this.machineNumber}`);
+				console.log(`You put ${putMoney}$ to machine number ${this.machineNumber}`);
 				console.log(`Current balance in machine number ${this.machineNumber}: ${this.moneyMachine}`);
 			}
 			return this;
@@ -221,7 +221,7 @@
 				if (playRandom.join('') === '777') {
 					matched = 777;
 				}
-				console.log(`And the result is.. ${playRandom.join('')}`);
+				console.log(`And the result is... | ${playRandom.join('')} |`);
 
 				switch (matched) {
 					case 1:
@@ -237,7 +237,7 @@
 						console.log(`You have got 777 and you receive all money from this machine: ${totalMachineMoney}$`);
 						break;
 					default:
-						console.log('Sorry but u have lost. Try again!');
+						console.log('Sorry but you lost. Try again!');
 						break;
 				}
 				console.log(`Your award: ${award}$`)
@@ -253,7 +253,7 @@
 				console.log('Sorry, it must be a number!');
 				return false;
 			} else if (incomeInteger < 0) {
-				console.log('It cant be less then 0');
+				console.log(`It couldnt be less then 0`);
 				return false;
 			} else {
 				return true;
