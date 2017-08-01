@@ -264,8 +264,11 @@
 
     function demonstration(machineNumber) {
         let startMoney = Math.floor(Math.random() * 50000);
+        // to generate random sum of money for casino to give an example how its work
         let money = Math.floor(Math.random() * 5000);
+        // to generate random sum of money to play with casino and put it to machines
         let randomMachine = Math.floor(Math.random() * machineNumber);
+        // to generate random number to choose any of created machines
 
         var CasinoDemo = new Casino(machineNumber, startMoney);
         CasinoDemo.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money);
