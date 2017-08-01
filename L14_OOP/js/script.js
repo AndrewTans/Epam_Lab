@@ -264,7 +264,7 @@
         let randomMachine = Math.floor(Math.random() * machineNumber);
 
         var CasinoDemo = new Casino(machineNumber, startMoney);
-        CasinoDemo.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine('randomMachine').takeCasinoMoney(money);
+        CasinoDemo.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money);
         CasinoDemo.machineArr[randomMachine].getTotalMoneyMachine(money).takeMoneyFromMachine(money).putMoneyToMachine(money).play(money);
         CasinoDemo.getTotalMoneyCasino();
     }
