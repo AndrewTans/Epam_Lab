@@ -97,8 +97,9 @@
                     }
                 }
                 if (machine_was_found == null) {
-                    console.log('Unable to find machine with number: ' + delId);
+                    console.log(`Unable to find machine with number: ${delId}`);
                 }
+                // to show array of machines after delete
                 console.log(this.machineArr);
             }
             return this;
@@ -112,7 +113,6 @@
                 let maxMoney;
                 for (let i = 0; i < this.machineArr.length; i++) {
                     sumTemp += this.machineArr[i].moneyMachine;
-
                 }
 
                 if (moneyTake > sumTemp) {
