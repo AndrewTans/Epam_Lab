@@ -5,13 +5,13 @@
 		var _slotMachines = slotMachines;
 		var _initial_money = initial_money;
 
-		if (parseInt(initial_money) != initial_money || parseInt(_slotMachines) != _slotMachines || _slotMachines < 1) {
+		if (parseInt(_initial_money) != _initial_money || parseInt(_slotMachines) != _slotMachines || _slotMachines < 1) {
 			console.log('Sorry, but it must be positive integer!');
 			return false;
-		} else if (initial_money < _slotMachines) {
+		} else if (_initial_money < _slotMachines) {
 			console.log('You should pass minimum 1 dollar for each machine!');
 			return false;
-		} else if (typeof(_slotMachines) !== "number" || typeof(initial_money) !== "number") {
+		} else if (typeof(_slotMachines) !== "number" || typeof(_initial_money) !== "number") {
 			console.log('Sorry, it must be a number!');
 			return false;
 		}
@@ -20,11 +20,11 @@
 		let luckyRandom = Math.floor(Math.random() * _slotMachines);
 		let tempMoney;
 		let moneyForFirstMachine = 0;
-		while (parseInt(initial_money / _slotMachines) != (initial_money / _slotMachines)) {
-			initial_money--;
+		while (parseInt(_initial_money / _slotMachines) != (_initial_money / _slotMachines)) {
+			_initial_money--;
 			moneyForFirstMachine++;
 		}
-		var equalMoney = initial_money / _slotMachines;
+		var equalMoney = _initial_money / _slotMachines;
 		for (let i = 0; i < _slotMachines; i++) {
 			if (i === 0) {
 				tempMoney = equalMoney + moneyForFirstMachine;
