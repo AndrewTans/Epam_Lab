@@ -137,7 +137,7 @@
 						continue;
 					}
 				}
-				console.log(`You took ${moneyTake} from machines. Current balance: ${sumTemp - moneyTake}`);
+				console.log(`You took ${moneyTake}$ from machines. Current balance: ${sumTemp - moneyTake}$`);
 				this.machineArr = this.machineArr.sort(function(a, b) {
 					return a.machineNumber - b.machineNumber;
 				});
