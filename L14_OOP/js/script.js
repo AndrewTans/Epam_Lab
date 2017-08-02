@@ -1,31 +1,31 @@
 (function CasinoGame() {
 
-	function Casino(slotMachines, initial_money) {
+	function Casino(slotMachines, initialMoney) {
 		this.machineArr = [];
-		var _slotMachines = slotMachines;
-		var _initial_money = initial_money;
+		this.slotMachines = slotMachines;
+		this.initialMoney = initialMoney;
 
-		if (parseInt(_initial_money) != _initial_money || parseInt(_slotMachines) != _slotMachines || _slotMachines < 1) {
+		if (parseInt(this.initialMoney) != this.initialMoney || parseInt(this.slotMachines) != this.slotMachines || this.slotMachines < 1) {
 			console.log('Sorry, but it must be positive integer!');
 			return false;
-		} else if (_initial_money < _slotMachines) {
+		} else if (this.initialMoney < this.slotMachines) {
 			console.log('You should pass minimum 1 dollar for each machine!');
 			return false;
-		} else if (typeof(_slotMachines) !== "number" || typeof(_initial_money) !== "number") {
+		} else if (typeof(this.slotMachines) !== "number" || typeof(this.initialMoney) !== "number") {
 			console.log('Sorry, it must be a number!');
 			return false;
 		}
 
 
-		let luckyRandom = Math.floor(Math.random() * _slotMachines);
+		let luckyRandom = Math.floor(Math.random() * this.slotMachines);
 		let tempMoney;
 		let moneyForFirstMachine = 0;
-		while (parseInt(_initial_money / _slotMachines) != (_initial_money / _slotMachines)) {
-			_initial_money--;
+		while (parseInt(this.initialMoney / this.slotMachines) != (this.initialMoney / this.slotMachines)) {
+			this.initialMoney--;
 			moneyForFirstMachine++;
 		}
-		var equalMoney = _initial_money / _slotMachines;
-		for (let i = 0; i < _slotMachines; i++) {
+		var equalMoney = this.initialMoney / this.slotMachines;
+		for (let i = 0; i < this.slotMachines; i++) {
 			if (i === 0) {
 				tempMoney = equalMoney + moneyForFirstMachine;
 			} else {
@@ -60,16 +60,20 @@
 		}
 
 		this.addNewMachine = function() {
-			var maxMoney = this.machineArr[0].moneyMachine;
+			var numChecker = 0
+			var maxMoney = this.machineArr[numChecker].moneyMachine;
 			var newNum = this.machineArr.length;
 			var tempNum = newNum + 1;
 			var halfMoney;
 
 			for (let i = 0; i < this.machineArr.length; i++) {
 				if (maxMoney < this.machineArr[i].moneyMachine) {
-					maxMoney = this.machineArr[i].moneyMachine
+					maxMoney = this.machineArr[i].moneyMachine;
+					numChecker = i;
 				}
 			}
+
+			this.machineArr[numChecker].moneyMachine = (maxMoney / 2) ^ 0;
 
 			halfMoney = (maxMoney / 2) ^ 0;
 			this.machineArr[newNum] = new SlotMachine(halfMoney);
@@ -88,18 +92,31 @@
 
 
 		this.removeMachine = function(delId) {
+			var machine_was_found;
+			var machineTempMoney;
 
-			if (checkIfNumber(delId) === true) {
-				var machine_was_found;
+			if (this.machineArr.length === 1) {
+				console.log('Sorry, but you cant remove last machine in casino');
+				return this;
+			} else if (checkIfNumber(delId) === true) {
 				for (let i = 0; i < this.machineArr.length; i++) {
 					if (delId == this.machineArr[i].machineNumber) {
 						machine_was_found = this.machineArr[i].machineNumber;
-						console.log(`You removed machine with number ${delId}`)
+						machineTempMoney = this.machineArr[i].moneyMachine;
+						this.machineArr[i].moneyMachine = 0;
+						console.log(`You removed machine with number ${delId} and spread ${machineTempMoney}$ between other machines`);
 						this.machineArr.splice(i, 1);
 					}
+
 				}
+
 				if (machine_was_found == null) {
 					console.log(`Unable to find machine with number: ${delId}`);
+				} else {
+					machineTempMoney = parseInt(machineTempMoney / this.machineArr.length);
+					for (let i = 0; i < this.machineArr.length; i++) {
+						this.machineArr[i].moneyMachine += (machineTempMoney);
+					}
 				}
 				// to show array of machines after delete
 				console.log(this.machineArr);
@@ -161,9 +178,9 @@
 	}
 
 
-	function SlotMachine(initial_money_machine) {
+	function SlotMachine(initialMoneyMachile) {
 
-		this.moneyMachine = initial_money_machine;
+		this.moneyMachine = initialMoneyMachile;
 
 		this.getTotalMoneyMachine = function() {
 			console.log(`Total amount of money in machine number ${this.machineNumber}: ${this.moneyMachine}$`);
