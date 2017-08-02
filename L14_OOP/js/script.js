@@ -1,5 +1,3 @@
-(function CasinoGame() {
-
 	function Casino(slotMachines, initialMoney) {
 		this.machineArr = [];
 		this.slotMachines = slotMachines;
@@ -297,6 +295,9 @@
 
 	demonstration(5);
 
-})();
 
-// module.exports = CasinoGame;
+// module.exports = {
+//   Casino: Casino,
+//   SlotMachine: SlotMachine,
+//   demonstration: demonstration
+// }
