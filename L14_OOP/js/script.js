@@ -41,7 +41,6 @@ function Casino(slotMachines, initialMoney) {
 	// to show array of machines
 	console.log(this.machineArr);
 
-
 	this.getTotalMoneyCasino = function() {
 		var sum = 0;
 
@@ -105,7 +104,6 @@ function Casino(slotMachines, initialMoney) {
 					console.log(`You removed machine with number ${delId} and spread ${machineTempMoney}$ between other machines`);
 					this.machineArr.splice(i, 1);
 				}
-
 			}
 
 			if (machine_was_found == null) {
