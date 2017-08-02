@@ -2,28 +2,30 @@
 
 	function Casino(slotMachines, initial_money) {
 		this.machineArr = [];
+		var _slotMachines = slotMachines;
+		var _initial_money = initial_money;
 
-		if (parseInt(initial_money) != initial_money || parseInt(slotMachines) != slotMachines || slotMachines < 1) {
+		if (parseInt(initial_money) != initial_money || parseInt(_slotMachines) != _slotMachines || _slotMachines < 1) {
 			console.log('Sorry, but it must be positive integer!');
 			return false;
-		} else if (initial_money < slotMachines) {
+		} else if (initial_money < _slotMachines) {
 			console.log('You should pass minimum 1 dollar for each machine!');
 			return false;
-		} else if (typeof(slotMachines) !== "number" || typeof(initial_money) !== "number") {
+		} else if (typeof(_slotMachines) !== "number" || typeof(initial_money) !== "number") {
 			console.log('Sorry, it must be a number!');
 			return false;
 		}
 
 
-		let luckyRandom = Math.floor(Math.random() * slotMachines);
+		let luckyRandom = Math.floor(Math.random() * _slotMachines);
 		let tempMoney;
 		let moneyForFirstMachine = 0;
-		while (parseInt(initial_money / slotMachines) != (initial_money / slotMachines)) {
+		while (parseInt(initial_money / _slotMachines) != (initial_money / _slotMachines)) {
 			initial_money--;
 			moneyForFirstMachine++;
 		}
-		var equalMoney = initial_money / slotMachines;
-		for (let i = 0; i < slotMachines; i++) {
+		var equalMoney = initial_money / _slotMachines;
+		for (let i = 0; i < _slotMachines; i++) {
 			if (i === 0) {
 				tempMoney = equalMoney + moneyForFirstMachine;
 			} else {
@@ -53,7 +55,7 @@
 		}
 
 		this.getTotalMachines = function() {
-			console.log(`Total SlotMachines in Casino: ${this.machineArr.length}`);
+			console.log(`Total Slot Machines in Casino: ${this.machineArr.length}`);
 			return this;
 		}
 
