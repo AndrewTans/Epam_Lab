@@ -157,22 +157,21 @@ function Casino(slotMachines, initialMoney) {
 		}
 		return this;
 	}
-
-	// this function is checking if number is not less than 0 and it must be a number
-	function checkIfNumber(incomeInteger) {
-
-		if (typeof(incomeInteger) !== 'number') {
-			console.log('Sorry, it must be a number!');
-			return false;
-		} else if (incomeInteger < 0) {
-			console.log('It cant be less then 0');
-			return false;
-		} else {
-			return true;
-		}
-	}
 }
 
+// this function is checking if number is not less than 0 and it must be a number
+function checkIfNumber(incomeInteger) {
+
+	if (typeof(incomeInteger) !== 'number') {
+		console.log('Sorry, it must be a number!');
+		return false;
+	} else if (incomeInteger < 0) {
+		console.log('It cant be less then 0');
+		return false;
+	} else {
+		return true;
+	}
+}
 
 function SlotMachine(initialMoneyMachile) {
 
@@ -185,7 +184,7 @@ function SlotMachine(initialMoneyMachile) {
 
 	this.takeMoneyFromMachine = function(takeMoneyFromM) {
 
-		if (checkIfNumberM(takeMoneyFromM) === true) {
+		if (checkIfNumber(takeMoneyFromM) === true) {
 			if (takeMoneyFromM > this.moneyMachine) {
 				console.log(`You couldn't take so much, this machine has only ${this.moneyMachine}$`);
 			} else {
@@ -199,7 +198,7 @@ function SlotMachine(initialMoneyMachile) {
 
 	this.putMoneyToMachine = function(putMoney) {
 
-		if (checkIfNumberM(putMoney) === true) {
+		if (checkIfNumber(putMoney) === true) {
 			this.moneyMachine += putMoney;
 			console.log(`You put ${putMoney}$ to machine number ${this.machineNumber}`);
 			console.log(`Current balance in machine number ${this.machineNumber}: ${this.moneyMachine}`);
@@ -209,7 +208,7 @@ function SlotMachine(initialMoneyMachile) {
 
 	this.play = function(playMoney) {
 
-		if (checkIfNumberM(playMoney) === true) {
+		if (checkIfNumber(playMoney) === true) {
 			let totalMachineMoney = this.moneyMachine + playMoney;
 			let matched = 0;
 			let award = 0;
@@ -260,20 +259,6 @@ function SlotMachine(initialMoneyMachile) {
 		}
 		return this;
 	}
-
-	// again function to check if its not less then 0 and is a number. We should't use inheritance here so that is why i wrote this function again
-	function checkIfNumberM(incomeInteger) {
-
-		if (typeof(incomeInteger) !== 'number') {
-			console.log('Sorry, it must be a number!');
-			return false;
-		} else if (incomeInteger < 0) {
-			console.log(`It couldnt be less then 0`);
-			return false;
-		} else {
-			return true;
-		}
-	}
 }
 
 // this function will show you how casino works
@@ -286,7 +271,7 @@ function demonstration(machineNumber) {
 	// to generate random number to choose any of created machines
 
 	var CasinoDemo = new Casino(machineNumber, startMoney);
-	CasinoDemo.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money);
+	CasinoDemo.getTotalMoneyCasino().getTotalMachines().addNewMachine().removeMachine(randomMachine).takeCasinoMoney(money*2);
 	CasinoDemo.machineArr[randomMachine].getTotalMoneyMachine(money).takeMoneyFromMachine(money).putMoneyToMachine(money).play(money);
 	CasinoDemo.getTotalMoneyCasino();
 }
@@ -295,7 +280,8 @@ demonstration(5);
 
 
 // module.exports = {
-//   Casino: Casino,
-//   SlotMachine: SlotMachine,
-//   demonstration: demonstration
+// 	Casino: Casino,
+// 	SlotMachine: SlotMachine,
+// 	checkIfNumber: checkIfNumber
+// 	demonstration: demonstration
 // }
