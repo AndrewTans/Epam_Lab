@@ -1,3 +1,4 @@
+/*Assign Method*/
 var assignMethod = function() {
     let newObj = {};
     for (let i = 0; i < arguments.length; i++) {
@@ -28,6 +29,10 @@ var options = {
 };
 var configs = assignMethod({}, defaults, options);
 console.log(configs);
+
+
+//////////////////////////////////////////////////////////////
+/*Game*/
 
 function prototypeGenerator(nameOfChild, fatherName) {
     nameOfChild.prototype = Object.create(fatherName.prototype);
