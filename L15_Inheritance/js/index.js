@@ -232,6 +232,9 @@ Monster.prototype.enrage = function() {
     }
 };
 
+
+
+
 function gameDemonstration() {
 
     var heracles = new Champion({
