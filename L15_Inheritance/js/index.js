@@ -20,15 +20,15 @@ var assignMethod = function() {
     return newObj;
 }
 
-var defaults = {
-    width: 100,
-    height: 100
-};
-var options = {
-    width: 150
-};
-var configs = assignMethod({}, defaults, options);
-console.log(configs);
+// var defaults = {
+//     width: 100,
+//     height: 100
+// };
+// var options = {
+//     width: 150
+// };
+// var configs = assignMethod({}, defaults, options);
+// console.log(configs);
 
 
 //////////////////////////////////////////////////////////////
@@ -245,8 +245,6 @@ function gameDemonstration() {
         hitpoints: 100
     });
 
-    console.log(heracles);
-    console.log(boar);
     heracles.getTotalHitpoints();
     heracles.getHitpoints();
     heracles.getAttack();
@@ -275,7 +273,7 @@ function gameDemonstration() {
     boar.getKillerPoints();
 }
 
-gameDemonstration();
+// gameDemonstration();
 
 // module.exports = {
 //     assignMethod: assignMethod,
