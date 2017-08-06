@@ -32,7 +32,7 @@ var assignMethod = function() {
 
 
 //////////////////////////////////////////////////////////////
-/*Game*/
+//////////////*Game*////////////////
 
 function prototypeGenerator(nameOfChild, fatherName) {
     nameOfChild.prototype = Object.create(fatherName.prototype);
@@ -231,10 +231,10 @@ Monster.prototype.enrage = function() {
         return this;
     }
 };
+/////////////////////End of Game/////////////////////////
 
 
-
-
+// function wich can demonstrate how its works
 function gameDemonstration() {
 
     var heracles = new Champion({
@@ -278,11 +278,11 @@ function gameDemonstration() {
 
 // gameDemonstration();
 
-// module.exports = {
-//     assignMethod: assignMethod,
-//     prototypeGenerator: prototypeGenerator,
-//     Hero: Hero,
-//     Champion: Champion,
-//     Monster: Monster,
-//     gameDemonstration: gameDemonstration
-// }
+module.exports = {
+    assignMethod: assignMethod,
+    prototypeGenerator: prototypeGenerator,
+    Hero: Hero,
+    Champion: Champion,
+    Monster: Monster,
+    gameDemonstration: gameDemonstration
+}
