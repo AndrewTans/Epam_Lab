@@ -11,7 +11,8 @@ class Character {
 		return this.health_;
 	}
 	toString() {
-		return "x: " + this.x + " y: " + this.y + " health: " + this.getHealth();
+		return `x: ${this.x} y: ${this.y} health: ${this.getHealth()}`;
+	
 	}
 }
 
