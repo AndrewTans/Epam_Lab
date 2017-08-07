@@ -8,10 +8,10 @@ function run(generator) {
   let it = generator();
 
   function go(res) {
-    res.value.then(function(value) {
-      go(it.next(value));
+    res.value.then(function(res) {
+      it.next(res);
     }, function(err) {
-      go(it.next(error));
+      it.next(err);
     });
   }
 
