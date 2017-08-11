@@ -141,9 +141,8 @@
         skills: ['JavaScript', 'HTML', 'CSS']
     }];
 
+
     let studentsNew = [];
-
-
     let cont = document.getElementById('container');
     let tab = document.createElement('table');
     tab.className = 'table table-hover';
@@ -152,11 +151,12 @@
     let th = document.createElement('th');
     let thRow = document.createElement('tr');
 
-
     let tr = [];
     let td = [];
+    let div = [];
 
 
+    /*Run functions*/
     /////////////////////////////////////////////////////////////
     /*FORM START*/
     let form = document.createElement('form');
@@ -208,88 +208,30 @@
     form.appendChild(buttonCancel);
     buttonCancel.style.marginTop = '5px';
     buttonCancel.className = 'btn btn-default btn-center';
-
-    buttonPush.addEventListener('click', add);
-
-
-    function add() {
-        let validation = true;
-
-        if (inputName.value === '') {
-            writeName.innerHTML = 'You need to write a name!'
-            writeName.style.color = 'red';
-
-        } else if (inputLastName.value === '') {
-            writeLastName.innerHTML = 'You need to write last name!'
-            writeLastName.style.color = 'red';
-        } else if (inputEmail.value === '') {
-            writeEmail.innerHTML = 'You need to write email!'
-            writeEmail.style.color = 'red';
-        } else if (inputProfilePicture.value === '') {
-            writeProfilePicture.innerHTML = 'You need to put image link!'
-            writeProfilePicture.style.color = 'red';
-        } else if (inputSkills.value === '') {
-            writeSkills.innerHTML = 'You need to write some skills!'
-            writeSkills.style.color = 'red';
-        } else {
-
-            studentsNew.forEach(function(el, i) {
-                console.log(studentsNew[i]['email']);
-                if (studentsNew[i]['email'] === inputEmail.value) {
-                    writeEmail.innerHTML = 'This email has already been used'
-                    writeEmail.style.color = 'red';
-                    validation = false;
-                } else if (studentsNew[i]['Student'] === `${inputName.value} ${inputLastName.value}`) {
-                    writeEmail.innerHTML = 'This name and lastname has already been used'
-                    writeEmail.style.color = 'red';
-                    validation = false;
-                }
-            });
-            console.log(`${inputName.value} ${inputLastName.value}`);
-            if (validation === true) {
-
-                studentsNew.unshift({
-                    "Student": `${inputName.value} ${inputLastName.value}`,
-                    "email": `${inputEmail.value}`,
-                    "Profile Picture": `${inputProfilePicture.value}`,
-                    "Skills": inputSkills.value.split(',')
-                });
-
-                cancel();
-                clearTable();
-                makeTable();
-                console.log(students);
-                console.log(studentsNew);
-            }
-        }
-    }
+    ///////////////////////////////////////////////////////////////
 
 
+
+    buttonPush.addEventListener('click', addMode);
     buttonCancel.addEventListener('click', cancel);
-
-    function cancel() {
-        inputName.value = '';
-        inputLastName.value = '';
-        inputEmail.value = '';
-        inputProfilePicture.value = '';
-        inputSkills.value = '';
-
-        writeName.innerHTML = 'Plese write a name';
-        writeLastName.innerHTML = 'Plese write lastname';
-        writeEmail.innerHTML = 'Plese write email';
-        writeSkills.innerHTML = 'Plese write your skills';
-        writeName.style.color = 'black';
-        writeLastName.style.color = 'black';
-        writeEmail.style.color = 'black';
-        writeSkills.style.color = 'black';
-    }
-
-    /*FORN END*/
-    //////////////////////////////////////////////////////////
 
     cont.appendChild(tab);
     tBody = document.createElement('tbody');
 
+
+    filterArray();
+    makeTHead();
+    makeTable();
+
+    tBody.addEventListener('click', editStudent);
+
+    clickAlert();
+
+    tHead.addEventListener('click', sortA);
+    /*end of run functions*/
+
+
+    /*rebuild array wich we need*/
     function filterArray() {
         students.map(function(el) {
             return studentsNew.push({
@@ -301,30 +243,38 @@
         });
 
     }
-    filterArray();
-    console.log(studentsNew);
 
-
-    for (let i = 0; i < 1; i++) {
-
-        for (let key in studentsNew[i]) {
+    /*generate tHead start*/
+    function makeTHead() {
+        let text;
+        let j = 0;
+        for (let key in studentsNew[0]) {
             th = document.createElement('th');
-            th.innerHTML = `${key}`;
+            text = document.createTextNode(`${key}`);
+            th.appendChild(text);
             th.style.fontWeight = '700';
+            if (key !== "Profile Picture") {
+                div[j] = document.createElement('div');
+                th.appendChild(div[j]);
+                div[j].className = 'glyphicon glyphicon-sort';
+                div[j].style.marginLeft = '3px';
+            }
             thRow.appendChild(th);
+            j++
         }
-
         // controls start
         th = document.createElement('th');
-        th.innerHTML = `Controls`;
+        th.innerText = `Controls`;
         th.style.fontWeight = '700';
         thRow.appendChild(th);
         // controls end
         tHead.appendChild(thRow);
         tab.appendChild(tHead);
     }
+    /*generate tHead end*/
 
 
+    /*generate table start*/
     function makeTable() {
 
         for (let i = 0; i < studentsNew.length; i++) {
@@ -352,39 +302,120 @@
             tab.appendChild(tBody);
         }
     }
-    makeTable();
-
+    /*generate table end*/
+    /*clear table*/
     function clearTable() {
         tBody.innerHTML = '';
     }
+    /*clear table end*/
 
+    /*Add student func main*/
+    function addMode() {
+        validationFunc();
+        if (validationFunc() === true) {
+            add();
+        }
+    }
 
+    function add() {
+        studentsNew.unshift({
+            "Student": `${inputName.value} ${inputLastName.value}`,
+            "email": `${inputEmail.value}`,
+            "Profile Picture": `${inputProfilePicture.value}`,
+            "Skills": inputSkills.value.split(',')
+        });
+
+        clearTable();
+        makeTable();
+        cancel();
+    }
+    /*add student func end*/
+
+    /*validation start*/
+    function validationFunc(mode) {
+        let validation = false;
+
+        if (inputName.value === '' || inputName.value.match(/[0-9]/)) {
+            writeName.innerHTML = 'You need to write symbols!'
+            writeName.style.color = 'red';
+        } else if (inputLastName.value === '' || inputName.value.match(/[0-9]/)) {
+            writeLastName.innerHTML = 'You need to write symbols!'
+            writeLastName.style.color = 'red';
+        } else if (inputEmail.value === '' || !inputEmail.value.match(/\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+            writeEmail.innerHTML = 'You need to write real email!'
+            writeEmail.style.color = 'red';
+        } else if (inputProfilePicture.value === '') {
+            writeProfilePicture.innerHTML = 'You need to put image link!'
+            writeProfilePicture.style.color = 'red';
+        } else if (inputSkills.value === '') {
+            writeSkills.innerHTML = 'You need to write some skills!'
+            writeSkills.style.color = 'red';
+        } else {
+            validation = true;
+        }
+
+        if (validation === true && mode !== 'edit') {
+            for (let i = 0; i < studentsNew.length; i++) {
+                if (studentsNew[i]['email'] === inputEmail.value.replace(/^\s*/, '').replace(/\s*$/, '')) {
+                    writeEmail.innerHTML = 'This email has already been used'
+                    writeEmail.style.color = 'red';
+                    validation = false;
+                    break;
+                } else if (studentsNew[i]['Student'] === `${inputName.value} ${inputLastName.value}`) {
+                    writeEmail.innerHTML = 'This name and lastname has already been used'
+                    writeEmail.style.color = 'red';
+                    validation = false;
+                    break;
+                } else {
+                    validation = true;
+                }
+            }
+        }
+        return validation;
+    }
+    /*validation end*/
+
+    /*cancel button func*/
+    function cancel() {
+        inputName.value = '';
+        inputLastName.value = '';
+        inputEmail.value = '';
+        inputProfilePicture.value = '';
+        inputSkills.value = '';
+
+        writeName.innerHTML = 'Plese write a name';
+        writeLastName.innerHTML = 'Plese write lastname';
+        writeEmail.innerHTML = 'Plese write email';
+        writeSkills.innerHTML = 'Plese write your skills';
+        writeName.style.color = 'black';
+        writeLastName.style.color = 'black';
+        writeEmail.style.color = 'black';
+        writeSkills.style.color = 'black';
+    }
+    /*cancel button func end*/
+
+    /*Alert func start*/
     function clickAlert() {
         tBody.addEventListener('click', show);
 
         function show(event) {
             var targetElement = event.target || event.srcElement;
-            event.stopPropagation();
+
             if (event.target.parentNode.childNodes[2] === undefined) {
                 alert(event.target.parentNode.previousSibling.previousSibling.textContent);
             } else if (!targetElement.className.match('edit') && !targetElement.className.match('remove')) {
                 alert(event.target.parentNode.firstChild.textContent);
             }
-        };
+        }
     }
-    clickAlert();
+    /*Alert func end*/
 
 
-
-    tBody.addEventListener('click', getStudent);
-    let objEdit = [];
-
-
-
-    function getStudent(e) {
+    /*Student Controlls buttons start*/
+    function editStudent(e) {
         let temp_num = 0;
 
-        var targetElement = e.target || e.srcElement;
+        var targetElement = e.target || e.target;
         if (targetElement.className.match('edit')) {
 
             let studentName = event.target.parentNode.firstChild;
@@ -399,17 +430,26 @@
             inputEmail.value = studentEmail.textContent;
             inputProfilePicture.value = studentPic.getAttribute('src');
             inputSkills.value = studentsSkills.textContent;
-            // searching if its in massive
+            // searching if its in massive by email for a student
             for (let i = 0; i < studentsNew.length; i++) {
                 if (studentsNew[i]['email'] === studentEmail.textContent) {
                     temp_num = i;
                 }
 
             }
+            /*remove previous event listener*/
+            buttonPush.removeEventListener('click', addMode);
+            buttonPush.addEventListener('click', editMode);
 
-            ///////////////////////////
-            buttonPush.removeEventListener('click', add);
-            buttonPush.addEventListener('click', edit);
+            function editMode() {
+                validationFunc('edit');
+                if (validationFunc('edit') === true) {
+                    edit();
+                    cancel();
+                    clearTable();
+                    makeTable();
+                }
+            }
 
             function edit() {
                 // edit in massive
@@ -419,16 +459,11 @@
                     "Profile Picture": `${inputProfilePicture.value}`,
                     "Skills": inputSkills.value.split(',')
                 };
-                console.log(studentsNew);
-                //////////////////
 
-                cancel();
-                clearTable();
-                makeTable();
-
-                buttonPush.removeEventListener('click', edit);
-                buttonPush.addEventListener('click', add);
+                buttonPush.removeEventListener('click', editMode);
+                buttonPush.addEventListener('click', addMode);
             }
+
         } else if (targetElement.className.match('remove')) {
 
             remove();
@@ -445,60 +480,75 @@
                 makeTable();
             }
         }
-
     }
+    /*Student Controlls buttons end*/
 
-    tHead.addEventListener('click', sortA);
-
+    /*Sorting function A-z*/
     function sortA(e) {
+
         let targetElement = e.target || e.srcElement;
 
-        console.log(targetElement.textContent);
-        if (targetElement.textContent.match('Student')) {
-            studentsNew = studentsNew.sort(function(a, b) {
-                if (a.Student < b.Student) {
-                    return -1;
-                } else if (a.Student > b.Student) {
-                    return 1;
-                }
-                return 0;
-            });
+        if (targetElement.textContent !== '') {
+            for (let i = 0; i < targetElement.parentNode.childNodes.length; i++) {
+                targetElement.parentNode.childNodes[i].lastChild.className = 'glyphicon glyphicon-sort';
+            }
 
-            tHead.addEventListener('click', sortZ);
-        } else if (targetElement.textContent.match('email')) {
-            studentsNew = studentsNew.sort(function(a, b) {
-                if (a.email < b.email) {
-                    return -1;
-                } else if (a.email > b.email) {
-                    return 1;
-                }
-                return 0;
-            });
-            tHead.addEventListener('click', sortZ);
-        } else if (targetElement.textContent.match('Skills')) {
-            studentsNew = studentsNew.sort(function(a, b) {
-                if (a.Skills < b.Skills) {
-                    return -1;
-                } else if (a.Skills > b.Skills) {
-                    return 1;
-                }
-                return 0;
-            });
-            tHead.addEventListener('click', sortZ);
+
+            if (targetElement.textContent.match('Student')) {
+                studentsNew = studentsNew.sort(function(a, b) {
+                    if (a.Student < b.Student) {
+                        return -1;
+                    } else if (a.Student > b.Student) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                tHead.addEventListener('click', sortZ);
+            } else if (targetElement.textContent.match('email')) {
+                studentsNew = studentsNew.sort(function(a, b) {
+                    if (a.email < b.email) {
+                        return -1;
+                    } else if (a.email > b.email) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                tHead.addEventListener('click', sortZ);
+            } else if (targetElement.textContent.match('Skills')) {
+                studentsNew = studentsNew.sort(function(a, b) {
+                    if (a.Skills < b.Skills) {
+                        return -1;
+                    } else if (a.Skills > b.Skills) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                tHead.addEventListener('click', sortZ);
+            }
+
+            targetElement.lastChild.className = 'glyphicon glyphicon-sort-by-alphabet';
+            clearTable();
+            makeTable();
         }
-        clearTable();
-        makeTable();
     }
+    /*End of sorting function A-z*/
 
-    function sortZ() {
+    /*Sorting function Z-a*/
+    function sortZ(e) {
 
-        studentsNew = studentsNew.reverse();
-        clearTable();
-        makeTable();
-        tHead.removeEventListener('click', sortZ);
-        tHead.addEventListener('click', sortA);
+        let targetElement = e.target || e.srcElement;
+        if (targetElement.textContent !== '') {
+            if (!targetElement.textContent.match('Profile Picture')) {
+                e.stopPropagation()
+                studentsNew = studentsNew.reverse();
+                targetElement.lastChild.className = 'glyphicon glyphicon-sort-by-alphabet-alt';
+                clearTable();
+                makeTable();
+                tHead.removeEventListener('click', sortZ);
+                tHead.addEventListener('click', sortA);
+            }
+        }
     }
-
-
+    /*End of sorting Z-a*/
 
 })();
