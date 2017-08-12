@@ -422,20 +422,12 @@
 			fillInputs();
 
 		} else if (targetElement.className.match('remove')) {
-
-			remove();
+			// remove student
+			checkObject();
+			studentsNew.splice(temp_num, 1);
 			cancel();
-
-			function remove() {
-				for (let i = 0; i < studentsNew.length; i++) {
-					if (studentsNew[i]['email'] === event.target.parentNode.firstChild.nextSibling.textContent) {
-						temp_num = i;
-					}
-				}
-				studentsNew.splice(temp_num, 1);
-				clearTable();
-				makeTable();
-			}
+			clearTable();
+			makeTable();
 		}
 	}
 
