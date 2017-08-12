@@ -150,6 +150,7 @@
     let labelTag = [];
     let inputTag = [];
 
+
     // Run script
 
     cont = document.getElementById('container');
@@ -169,14 +170,13 @@
     makeTable();
 
     tHead.addEventListener('click', sortA);
-    tBody.addEventListener('click', editStudent);
     tBody.addEventListener('click', show);
+    tBody.addEventListener('click', editStudent);
 
     // end of run script
 
 
-    // functions...
-
+    // functions start...
     // FORM START
     function formInputs() {
 
@@ -394,7 +394,6 @@
         var targetElement = event.target || event.srcElement;
 
         if (!targetElement.className.match('edit') && !targetElement.className.match('remove') && event.target.parentNode.parentNode.firstChild.textContent.trim() !== '') {
-
             if (event.target.parentNode.childNodes[2] === undefined) {
                 alert(event.target.parentNode.parentNode.firstChild.textContent);
 
@@ -408,13 +407,15 @@
     // Student Controlls buttons start
     function editStudent(e) {
 
-        temp_num = 0;
         // remove previous event listener
-        buttonPush.removeEventListener('click', addMode);
-        buttonPush.addEventListener('click', editMode);
 
         var targetElement = e.target || e.target;
+
+        temp_num = 0;
+
         if (targetElement.className.match('edit')) {
+            buttonPush.removeEventListener('click', addMode);
+            buttonPush.addEventListener('click', editMode);
 
             checkObject();
             fillInputs();
@@ -436,7 +437,6 @@
             }
         }
     }
-    // end of controls buttons
 
     // function, which run edit mode
     function editMode() {
@@ -488,9 +488,9 @@
         buttonPush.removeEventListener('click', editMode);
         buttonPush.addEventListener('click', addMode);
     }
-    /*Student Controlls buttons end*/
+    // Student Controlls buttons end
 
-    /*Sorting function A-z*/
+    // Sorting function A-z
     function sortA(e) {
 
         let targetElement = e.target || e.srcElement;
@@ -538,9 +538,9 @@
             makeTable();
         }
     }
-    /*End of sorting function A-z*/
+    // End of sorting function A-z
 
-    /*Sorting function Z-a*/
+    // Sorting function Z-a
     function sortZ(e) {
 
         let targetElement = e.target || e.srcElement;
@@ -555,6 +555,6 @@
             }
         }
     }
-    /*End of sorting Z-a*/
+    // End of sorting Z-a
 
 })();
