@@ -193,18 +193,18 @@
         }
 
         labelTag[0].setAttribute('for', 'name');
-        labelTag[0].innerHTML = 'Name';
+        labelTag[0].innerHTML = 'Please, write name';
         inputTag[0].id = 'name';
-        labelTag[1].setAttribute('for', 'lastname');
+        labelTag[1].setAttribute('for', 'Please, write lastname');
         labelTag[1].innerHTML = 'Lastname';
         inputTag[1].id = 'lastname';
-        labelTag[2].setAttribute('for', 'email');
+        labelTag[2].setAttribute('for', 'Please, write email');
         labelTag[2].innerHTML = 'Email';
         inputTag[2].id = 'email';
         labelTag[3].setAttribute('for', 'profilePicture');
-        labelTag[3].innerHTML = 'Link to image';
+        labelTag[3].innerHTML = 'Please, put link to image';
         inputTag[3].id = 'profilePicture';
-        labelTag[4].setAttribute('for', 'skills');
+        labelTag[4].setAttribute('for', 'Please, write your skills');
         labelTag[4].innerHTML = 'Skills';
         inputTag[4].id = 'skills';
 
