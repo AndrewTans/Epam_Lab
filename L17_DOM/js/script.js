@@ -193,19 +193,19 @@
         }
 
         labelTag[0].setAttribute('for', 'name');
-        labelTag[0].innerHTML = 'Plese write name';
+        labelTag[0].innerHTML = 'Name';
         inputTag[0].id = 'name';
         labelTag[1].setAttribute('for', 'lastname');
-        labelTag[1].innerHTML = 'Plese write lastname';
+        labelTag[1].innerHTML = 'Lastname';
         inputTag[1].id = 'lastname';
         labelTag[2].setAttribute('for', 'email');
-        labelTag[2].innerHTML = 'Plese write email';
+        labelTag[2].innerHTML = 'Email';
         inputTag[2].id = 'email';
         labelTag[3].setAttribute('for', 'profilePicture');
-        labelTag[3].innerHTML = 'Plese put link to image';
+        labelTag[3].innerHTML = 'Link to image';
         inputTag[3].id = 'profilePicture';
         labelTag[4].setAttribute('for', 'skills');
-        labelTag[4].innerHTML = 'Plese write skills';
+        labelTag[4].innerHTML = 'Skills';
         inputTag[4].id = 'skills';
 
         buttonPush = document.createElement('input');
