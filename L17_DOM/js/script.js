@@ -354,11 +354,6 @@
 					labelTag[2].style.color = 'red';
 					validation = false;
 					break;
-				} else if (studentsNew[i]['Student'] === `${inputTag[0].value} ${inputTag[1].value}`) {
-					labelTag[2].innerHTML = 'This name and lastname has already been used'
-					labelTag[2].style.color = 'red';
-					validation = false;
-					break;
 				} else {
 					validation = true;
 				}
