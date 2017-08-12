@@ -401,6 +401,10 @@
 			} else {
 				alert(event.target.parentNode.firstChild.textContent);
 			}
+			// without this it can be bug with edit Func
+			cancel();
+			buttonPush.removeEventListener('click', editMode);
+			buttonPush.addEventListener('click', addMode);
 		}
 	}
 	// Alert func end
