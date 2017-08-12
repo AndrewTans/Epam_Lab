@@ -141,76 +141,22 @@
         skills: ['JavaScript', 'HTML', 'CSS']
     }];
 
-
     let studentsNew = [];
-    let cont = document.getElementById('container');
-    let tab = document.createElement('table');
-    tab.className = 'table table-hover';
-    let tHead = document.createElement('thead');
-    let tBody;
-    let th = document.createElement('th');
-    let thRow = document.createElement('tr');
+    let cont, tab, tHead, thRow, th, tBody, div, form, buttonPush, buttonCancel, temp_num;
 
     let tr = [];
     let td = [];
-    let div = [];
 
+    let labelTag = [];
+    let inputTag = [];
 
-    /*Run functions*/
-    /////////////////////////////////////////////////////////////
-    /*FORM START*/
-    let form = document.createElement('form');
-    cont.appendChild(form);
-    form.className = 'form-class form-horizontal';
-    form.style.margin = 'auto';
-    form.style.textAlign = 'center';
-    let writeName = document.createElement('div');
-    let inputName = document.createElement('input');
-    let writeLastName = document.createElement('div');
-    let inputLastName = document.createElement('input');
-    let writeEmail = document.createElement('div');
-    let inputEmail = document.createElement('input');
-    let writeProfilePicture = document.createElement('div');
-    let inputProfilePicture = document.createElement('input');
-    let writeSkills = document.createElement('div');
-    let inputSkills = document.createElement('input');
-    let buttonPush = document.createElement('input');
-    buttonPush.setAttribute('type', 'button');
-    buttonPush.setAttribute('value', 'push')
-    let buttonCancel = document.createElement('input');
-    buttonCancel.setAttribute('type', 'button');
-    buttonCancel.setAttribute('value', 'cancel')
+    // Run script
 
+    cont = document.getElementById('container');
+    tab = document.createElement('table');
+    tab.className = 'table table-hover';
 
-    form.appendChild(writeName);
-    writeName.innerHTML = 'Plese write a name';
-    form.appendChild(inputName);
-    inputName.className = 'form-control';
-    form.appendChild(writeLastName);
-    writeLastName.innerHTML = 'Plese write lastname';
-    form.appendChild(inputLastName);
-    inputLastName.className = 'form-control';
-    form.appendChild(writeEmail);
-    writeEmail.innerHTML = 'Plese write email';
-    form.appendChild(inputEmail);
-    inputEmail.className = 'form-control';
-    form.appendChild(writeProfilePicture);
-    writeProfilePicture.innerHTML = 'Plese put link to img';
-    form.appendChild(inputProfilePicture);
-    inputProfilePicture.className = 'form-control';
-    form.appendChild(writeSkills);
-    writeSkills.innerHTML = 'Plese write your skills';
-    form.appendChild(inputSkills);
-    inputSkills.className = 'form-control';
-    form.appendChild(buttonPush);
-    buttonPush.style.marginTop = '5px';
-    buttonPush.className = 'btn btn-default btn-center';
-    form.appendChild(buttonCancel);
-    buttonCancel.style.marginTop = '5px';
-    buttonCancel.className = 'btn btn-default btn-center';
-    ///////////////////////////////////////////////////////////////
-
-
+    formInputs();
 
     buttonPush.addEventListener('click', addMode);
     buttonCancel.addEventListener('click', cancel);
@@ -218,20 +164,68 @@
     cont.appendChild(tab);
     tBody = document.createElement('tbody');
 
-
     filterArray();
     makeTHead();
     makeTable();
 
-    tBody.addEventListener('click', editStudent);
-
-    clickAlert();
-
     tHead.addEventListener('click', sortA);
-    /*end of run functions*/
+    tBody.addEventListener('click', editStudent);
+    tBody.addEventListener('click', show);
+
+    // end of run script
 
 
-    /*rebuild array wich we need*/
+    // functions...
+
+    // FORM START
+    function formInputs() {
+
+        form = document.createElement('form');
+        cont.appendChild(form);
+        form.className = 'form-class form-horizontal';
+
+        for (let i = 0; i < 5; i++) {
+            labelTag[i] = document.createElement('label');
+            form.appendChild(labelTag[i]);
+            inputTag[i] = document.createElement('input');
+            inputTag[i].className = 'form-control';
+            form.appendChild(inputTag[i]);
+        }
+
+        labelTag[0].setAttribute('for', 'name');
+        labelTag[0].innerHTML = 'Plese write name';
+        inputTag[0].id = 'name';
+        labelTag[1].setAttribute('for', 'lastname');
+        labelTag[1].innerHTML = 'Plese write lastname';
+        inputTag[1].id = 'lastname';
+        labelTag[2].setAttribute('for', 'email');
+        labelTag[2].innerHTML = 'Plese write email';
+        inputTag[2].id = 'email';
+        labelTag[3].setAttribute('for', 'profilePicture');
+        labelTag[3].innerHTML = 'Plese put link to image';
+        inputTag[3].id = 'profilePicture';
+        labelTag[4].setAttribute('for', 'skills');
+        labelTag[4].innerHTML = 'Plese write skills';
+        inputTag[4].id = 'skills';
+
+        buttonPush = document.createElement('input');
+        buttonCancel = document.createElement('input');
+        buttonPush.setAttribute('type', 'button');
+        buttonPush.setAttribute('value', 'push')
+        buttonCancel.setAttribute('type', 'button');
+        buttonCancel.setAttribute('value', 'cancel')
+
+        form.appendChild(buttonPush);
+        buttonPush.style.marginTop = '5px';
+        buttonPush.className = 'btn btn-default btn-center';
+        form.appendChild(buttonCancel);
+        buttonCancel.style.marginTop = '5px';
+        buttonCancel.className = 'btn btn-default btn-center';
+    }
+    // end of form func
+
+
+    // rebuild array wich we need
     function filterArray() {
         students.map(function(el) {
             return studentsNew.push({
@@ -244,23 +238,23 @@
 
     }
 
-    /*generate tHead start*/
+    // generate tHead start
     function makeTHead() {
         let text;
-        let j = 0;
+        tHead = document.createElement('thead');
+        thRow = document.createElement('tr');
         for (let key in studentsNew[0]) {
             th = document.createElement('th');
             text = document.createTextNode(`${key}`);
             th.appendChild(text);
             th.style.fontWeight = '700';
             if (key !== "Profile Picture") {
-                div[j] = document.createElement('div');
-                th.appendChild(div[j]);
-                div[j].className = 'glyphicon glyphicon-sort';
-                div[j].style.marginLeft = '3px';
+                div = document.createElement('div');
+                th.appendChild(div);
+                div.className = 'glyphicon glyphicon-sort';
+                div.style.marginLeft = '3px';
             }
             thRow.appendChild(th);
-            j++
         }
         // controls start
         th = document.createElement('th');
@@ -271,10 +265,9 @@
         tHead.appendChild(thRow);
         tab.appendChild(tHead);
     }
-    /*generate tHead end*/
+    // generate tHead end
 
-
-    /*generate table start*/
+    // generate table start
     function makeTable() {
 
         for (let i = 0; i < studentsNew.length; i++) {
@@ -302,14 +295,15 @@
             tab.appendChild(tBody);
         }
     }
-    /*generate table end*/
-    /*clear table*/
+    // generate table end
+
+    // clear table
     function clearTable() {
         tBody.innerHTML = '';
     }
-    /*clear table end*/
+    // clear table end
 
-    /*Add student func main*/
+    // Add student func main
     function addMode() {
         validationFunc();
         if (validationFunc() === true) {
@@ -319,51 +313,51 @@
 
     function add() {
         studentsNew.unshift({
-            "Student": `${inputName.value} ${inputLastName.value}`,
-            "email": `${inputEmail.value}`,
-            "Profile Picture": `${inputProfilePicture.value}`,
-            "Skills": inputSkills.value.split(',')
+            "Student": `${inputTag[0].value} ${inputTag[1].value}`,
+            "email": `${inputTag[2].value}`,
+            "Profile Picture": `${inputTag[3].value}`,
+            "Skills": inputTag[4].value.split(',')
         });
 
         clearTable();
         makeTable();
         cancel();
     }
-    /*add student func end*/
+    // add student func end
 
-    /*validation start*/
+    // validation start
     function validationFunc(mode) {
         let validation = false;
 
-        if (inputName.value === '' || inputName.value.match(/[0-9]/)) {
-            writeName.innerHTML = 'You need to write symbols!'
-            writeName.style.color = 'red';
-        } else if (inputLastName.value === '' || inputName.value.match(/[0-9]/)) {
-            writeLastName.innerHTML = 'You need to write symbols!'
-            writeLastName.style.color = 'red';
-        } else if (inputEmail.value === '' || !inputEmail.value.match(/\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
-            writeEmail.innerHTML = 'You need to write real email!'
-            writeEmail.style.color = 'red';
-        } else if (inputProfilePicture.value === '') {
-            writeProfilePicture.innerHTML = 'You need to put image link!'
-            writeProfilePicture.style.color = 'red';
-        } else if (inputSkills.value === '') {
-            writeSkills.innerHTML = 'You need to write some skills!'
-            writeSkills.style.color = 'red';
+        if (inputTag[0].value === '' || inputTag[0].value.match(/[0-9]/)) {
+            labelTag[0].innerHTML = 'You need to write symbols!'
+            labelTag[0].style.color = 'red';
+        } else if (inputTag[1].value === '' || inputTag[1].value.match(/[0-9]/)) {
+            labelTag[1].innerHTML = 'You need to write symbols!'
+            labelTag[1].style.color = 'red';
+        } else if (inputTag[2].value === '' || !inputTag[2].value.match(/\w+@[a-zA-Z_]+?\.[a-zA-Z]/)) {
+            labelTag[2].innerHTML = 'You need to write real email with "@" and dot!'
+            labelTag[2].style.color = 'red';
+        } else if (inputTag[3].value === '') {
+            labelTag[3].innerHTML = 'You need to put image link!'
+            labelTag[3].style.color = 'red';
+        } else if (inputTag[4].value === '') {
+            labelTag[4].innerHTML = 'You need to write some skills!'
+            labelTag[4].style.color = 'red';
         } else {
             validation = true;
         }
 
         if (validation === true && mode !== 'edit') {
             for (let i = 0; i < studentsNew.length; i++) {
-                if (studentsNew[i]['email'] === inputEmail.value.replace(/^\s*/, '').replace(/\s*$/, '')) {
-                    writeEmail.innerHTML = 'This email has already been used'
-                    writeEmail.style.color = 'red';
+                if (studentsNew[i]['email'] === inputTag[2].value.replace(/^\s*/, '').replace(/\s*$/, '')) {
+                    labelTag[2].innerHTML = 'This email has already been used'
+                    labelTag[2].style.color = 'red';
                     validation = false;
                     break;
-                } else if (studentsNew[i]['Student'] === `${inputName.value} ${inputLastName.value}`) {
-                    writeEmail.innerHTML = 'This name and lastname has already been used'
-                    writeEmail.style.color = 'red';
+                } else if (studentsNew[i]['Student'] === `${inputTag[0].value} ${inputTag[1].value}`) {
+                    labelTag[2].innerHTML = 'This name and lastname has already been used'
+                    labelTag[2].style.color = 'red';
                     validation = false;
                     break;
                 } else {
@@ -373,96 +367,57 @@
         }
         return validation;
     }
-    /*validation end*/
+    // validation end
 
-    /*cancel button func*/
+    // cancel button func
     function cancel() {
-        inputName.value = '';
-        inputLastName.value = '';
-        inputEmail.value = '';
-        inputProfilePicture.value = '';
-        inputSkills.value = '';
+        inputTag[0].value = '';
+        inputTag[1].value = '';
+        inputTag[2].value = '';
+        inputTag[3].value = '';
+        inputTag[4].value = '';
 
-        writeName.innerHTML = 'Plese write a name';
-        writeLastName.innerHTML = 'Plese write lastname';
-        writeEmail.innerHTML = 'Plese write email';
-        writeSkills.innerHTML = 'Plese write your skills';
-        writeName.style.color = 'black';
-        writeLastName.style.color = 'black';
-        writeEmail.style.color = 'black';
-        writeSkills.style.color = 'black';
+        labelTag[0].innerHTML = 'Plese write a name';
+        labelTag[1].innerHTML = 'Plese write lastname';
+        labelTag[2].innerHTML = 'Plese write email';
+        labelTag[4].innerHTML = 'Plese write your skills';
+        labelTag[0].style.color = 'black';
+        labelTag[1].style.color = 'black';
+        labelTag[2].style.color = 'black';
+        labelTag[4].style.color = 'black';
     }
-    /*cancel button func end*/
+    // cancel button func end
 
-    /*Alert func start*/
-    function clickAlert() {
-        tBody.addEventListener('click', show);
+    // Alert func start
+    function show(event) {
 
-        function show(event) {
-            var targetElement = event.target || event.srcElement;
+        var targetElement = event.target || event.srcElement;
+
+        if (!targetElement.className.match('edit') && !targetElement.className.match('remove') && event.target.parentNode.parentNode.firstChild.textContent.trim() !== '') {
 
             if (event.target.parentNode.childNodes[2] === undefined) {
-                alert(event.target.parentNode.previousSibling.previousSibling.textContent);
-            } else if (!targetElement.className.match('edit') && !targetElement.className.match('remove')) {
+                alert(event.target.parentNode.parentNode.firstChild.textContent);
+
+            } else {
                 alert(event.target.parentNode.firstChild.textContent);
             }
         }
     }
-    /*Alert func end*/
+    // Alert func end
 
-
-    /*Student Controlls buttons start*/
+    // Student Controlls buttons start
     function editStudent(e) {
-        let temp_num = 0;
+
+        temp_num = 0;
+        // remove previous event listener
+        buttonPush.removeEventListener('click', addMode);
+        buttonPush.addEventListener('click', editMode);
 
         var targetElement = e.target || e.target;
         if (targetElement.className.match('edit')) {
 
-            let studentName = event.target.parentNode.firstChild;
-            let tempArr = studentName.textContent.split(' ')
-
-            let studentEmail = event.target.parentNode.firstChild.nextSibling;
-            let studentPic = event.target.parentNode.firstChild.nextSibling.nextSibling.firstChild;
-            let studentsSkills = event.target.parentNode.firstChild.nextSibling.nextSibling.nextSibling;
-
-            inputName.value = tempArr[0];
-            inputLastName.value = tempArr[1];
-            inputEmail.value = studentEmail.textContent;
-            inputProfilePicture.value = studentPic.getAttribute('src');
-            inputSkills.value = studentsSkills.textContent;
-            // searching if its in massive by email for a student
-            for (let i = 0; i < studentsNew.length; i++) {
-                if (studentsNew[i]['email'] === studentEmail.textContent) {
-                    temp_num = i;
-                }
-
-            }
-            /*remove previous event listener*/
-            buttonPush.removeEventListener('click', addMode);
-            buttonPush.addEventListener('click', editMode);
-
-            function editMode() {
-                validationFunc('edit');
-                if (validationFunc('edit') === true) {
-                    edit();
-                    cancel();
-                    clearTable();
-                    makeTable();
-                }
-            }
-
-            function edit() {
-                // edit in massive
-                studentsNew[temp_num] = {
-                    "Student": `${inputName.value} ${inputLastName.value}`,
-                    "email": `${inputEmail.value}`,
-                    "Profile Picture": `${inputProfilePicture.value}`,
-                    "Skills": inputSkills.value.split(',')
-                };
-
-                buttonPush.removeEventListener('click', editMode);
-                buttonPush.addEventListener('click', addMode);
-            }
+            checkObject();
+            fillInputs();
 
         } else if (targetElement.className.match('remove')) {
 
@@ -480,6 +435,58 @@
                 makeTable();
             }
         }
+    }
+    // end of controls buttons
+
+    // function, which run edit mode
+    function editMode() {
+        validationFunc('edit');
+        if (validationFunc('edit') === true) {
+            edit();
+            cancel();
+            clearTable();
+            makeTable();
+        }
+    }
+
+    // searching if its in massive
+    function checkObject() {
+        for (let i = 0; i < studentsNew.length; i++) {
+            if (event.target.parentNode === tr[i]) {
+                temp_num = i;
+            }
+        }
+        return temp_num;
+    }
+
+    // fill in form inputs
+    function fillInputs() {
+        let studentName = event.target.parentNode.firstChild;
+        let tempArr = studentName.textContent.split(' ')
+
+        let studentEmail = event.target.parentNode.firstChild.nextSibling;
+        let studentPic = event.target.parentNode.firstChild.nextSibling.nextSibling.firstChild;
+        let studentsSkills = event.target.parentNode.firstChild.nextSibling.nextSibling.nextSibling;
+
+        inputTag[0].value = tempArr[0];
+        inputTag[1].value = tempArr[1];
+        inputTag[2].value = studentEmail.textContent;
+        inputTag[3].value = studentPic.getAttribute('src');
+        inputTag[4].value = studentsSkills.textContent;
+    }
+
+    // edit in massive
+    function edit() {
+
+        studentsNew[temp_num] = {
+            "Student": `${inputTag[0].value} ${inputTag[1].value}`,
+            "email": `${inputTag[2].value}`,
+            "Profile Picture": `${inputTag[3].value}`,
+            "Skills": inputTag[4].value.split(',')
+        };
+
+        buttonPush.removeEventListener('click', editMode);
+        buttonPush.addEventListener('click', addMode);
     }
     /*Student Controlls buttons end*/
 
@@ -539,7 +546,6 @@
         let targetElement = e.target || e.srcElement;
         if (targetElement.textContent !== '') {
             if (!targetElement.textContent.match('Profile Picture')) {
-                e.stopPropagation()
                 studentsNew = studentsNew.reverse();
                 targetElement.lastChild.className = 'glyphicon glyphicon-sort-by-alphabet-alt';
                 clearTable();
