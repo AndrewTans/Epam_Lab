@@ -377,10 +377,10 @@
         inputTag[3].value = '';
         inputTag[4].value = '';
 
-        labelTag[0].innerHTML = 'Plese write a name';
-        labelTag[1].innerHTML = 'Plese write lastname';
-        labelTag[2].innerHTML = 'Plese write email';
-        labelTag[4].innerHTML = 'Plese write your skills';
+        labelTag[0].innerHTML = 'Please, write name';
+        labelTag[1].innerHTML = 'Please, write lastname';
+        labelTag[2].innerHTML = 'Please, write email';
+        labelTag[4].innerHTML = 'Please, write your skills';
         labelTag[0].style.color = 'black';
         labelTag[1].style.color = 'black';
         labelTag[2].style.color = 'black';
