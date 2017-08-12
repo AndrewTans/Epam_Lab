@@ -195,17 +195,17 @@
         labelTag[0].setAttribute('for', 'name');
         labelTag[0].innerHTML = 'Please, write name';
         inputTag[0].id = 'name';
-        labelTag[1].setAttribute('for', 'Please, write lastname');
-        labelTag[1].innerHTML = 'Lastname';
+        labelTag[1].setAttribute('for', 'Lastname');
+        labelTag[1].innerHTML = 'Please, write lastname';
         inputTag[1].id = 'lastname';
-        labelTag[2].setAttribute('for', 'Please, write email');
-        labelTag[2].innerHTML = 'Email';
+        labelTag[2].setAttribute('for', 'email');
+        labelTag[2].innerHTML = 'Please, write email';
         inputTag[2].id = 'email';
         labelTag[3].setAttribute('for', 'profilePicture');
         labelTag[3].innerHTML = 'Please, put link to image';
         inputTag[3].id = 'profilePicture';
-        labelTag[4].setAttribute('for', 'Please, write your skills');
-        labelTag[4].innerHTML = 'Skills';
+        labelTag[4].setAttribute('for', 'skills');
+        labelTag[4].innerHTML = 'Please, write your skills';
         inputTag[4].id = 'skills';
 
         buttonPush = document.createElement('input');
