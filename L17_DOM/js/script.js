@@ -386,6 +386,9 @@
 		labelTag[2].style.color = 'black';
 		labelTag[3].style.color = 'black';
 		labelTag[4].style.color = 'black';
+
+		buttonPush.removeEventListener('click', editMode);
+		buttonPush.addEventListener('click', addMode);
 	}
 	// cancel button func end
 
@@ -401,10 +404,7 @@
 			} else {
 				alert(event.target.parentNode.firstChild.textContent);
 			}
-			// without this it can be bug with edit Func
 			cancel();
-			buttonPush.removeEventListener('click', editMode);
-			buttonPush.addEventListener('click', addMode);
 		}
 	}
 	// Alert func end
@@ -412,13 +412,12 @@
 	// Student Controlls buttons start
 	function editStudent(e) {
 
-		// remove previous event listener
-
 		var targetElement = e.target || e.target;
 
 		temp_num = 0;
 
 		if (targetElement.className.match('edit')) {
+			// remove previous event listener
 			buttonPush.removeEventListener('click', addMode);
 			buttonPush.addEventListener('click', editMode);
 
@@ -481,9 +480,6 @@
 			"Profile Picture": `${inputTag[3].value}`,
 			"Skills": inputTag[4].value.split(',')
 		};
-
-		buttonPush.removeEventListener('click', editMode);
-		buttonPush.addEventListener('click', addMode);
 	}
 	// Student Controlls buttons end
 
