@@ -404,7 +404,7 @@
 	}
 	// Alert func end
 
-	// Student Controlls buttons start
+	// Student Controls buttons start
 	function editStudent(e) {
 
 		var targetElement = e.target || e.target;
@@ -476,7 +476,7 @@
 			"Skills": inputTag[4].value.split(',')
 		};
 	}
-	// Student Controlls buttons end
+	// Student Controls buttons end
 
 	// Sorting function A-z
 	function sortA(e) {
@@ -533,7 +533,7 @@
 
 		let targetElement = e.target || e.srcElement;
 		if (targetElement.textContent !== '') {
-			if (!targetElement.textContent.match('Profile Picture')) {
+			if (!targetElement.textContent.match('Profile Picture') && !targetElement.textContent.match('Controls')) {
 				studentsNew = studentsNew.reverse();
 				targetElement.lastChild.className = 'glyphicon glyphicon-sort-by-alphabet-alt';
 				clearTable();
