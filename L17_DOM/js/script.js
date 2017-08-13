@@ -152,7 +152,6 @@
 
 
 	// Run script
-
 	cont = document.getElementById('container');
 	tab = document.createElement('table');
 	tab.className = 'table table-hover';
@@ -172,12 +171,10 @@
 	tHead.addEventListener('click', sortA);
 	tBody.addEventListener('click', show);
 	tBody.addEventListener('click', editStudent);
-
 	// end of run script
 
 
-	// functions start...
-	// FORM START
+	// form generator
 	function formInputs() {
 
 		form = document.createElement('form');
@@ -466,7 +463,7 @@
 		inputTag[4].value = studentsSkills.textContent;
 	}
 
-	// edit in massive
+	// edit obj in massive
 	function edit() {
 
 		studentsNew[temp_num] = {
