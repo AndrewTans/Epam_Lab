@@ -7,10 +7,6 @@ var crypto = require('crypto');
 
 app.use(bodyParser.json());
 
-app.listen(3000, function() {
-	console.log('server listening on port 3000!');
-});
-
 let arr = [];
 
 app.post('/users', function(req, res) {
@@ -79,7 +75,6 @@ app.get('/users', function(req, res) {
 app.get('/users/:id', function(req, res) {
 	let content = [];
 	let result, index;
-	let key = 'TheKey123';
 	let idCheck = req.params.id;
 
 	fs.readFile('storage.data', function read(error, data) {
@@ -185,4 +180,8 @@ app.delete('/users/:id', function(req, res) {
 			}
 		}
 	});
+});
+
+app.listen(3000, function() {
+	console.log('server listening on port 3000!');
 });
