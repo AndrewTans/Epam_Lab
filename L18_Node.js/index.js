@@ -5,7 +5,7 @@ var fs = require('fs');
 var crypto = require('crypto');
 
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.listen(3000, function() {
 	console.log('server listening on port 3000!');
