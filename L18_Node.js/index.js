@@ -77,20 +77,20 @@ app.get('/users', function(req, res) {
 	let content = [];
 
 	fs.readFile('storage.json', function read(error, data) {
-			if (error) {
-				console.error('Read with error');
-				return res.status(500).end('Error');
-			} else if (data == '') {
-				res.status(200).send(['[]']);
-			} else {
-				content = JSON.parse(data);
-				for (let i = 0; i < content.length; i++) {
-					delete content[i].password;
-				}
-				res.status(200).send(content).end('Success');
+		if (error) {
+			console.error('Read with error');
+			return res.status(500).end('Error');
+		} else if (data == '') {
+			res.status(200).send(['[]']);
+		} else {
+			content = JSON.parse(data);
+			for (let i = 0; i < content.length; i++) {
+				delete content[i].password;
 			}
-		});
+			res.status(200).send(content).end('Success');
+		}
 	});
+});
 
 app.get('/users/:id', function(req, res) {
 	let content = [];
@@ -102,25 +102,21 @@ app.get('/users/:id', function(req, res) {
 			console.log('error');
 			return res.status(500).end('Error');
 		} else {
-			if (data == '') {
-				res.status(200).send([]);
-			} else {
-				content = JSON.parse(data);
-				for (let i = 0; i < content.length; i++) {
-					if (parseInt(idCheck) === parseInt(content[i].id)) {
-						result = content[i];
-						index = content[i].id;
-						break;
-					}
+			content = JSON.parse(data);
+			for (let i = 0; i < content.length; i++) {
+				if (parseInt(idCheck) === parseInt(content[i].id)) {
+					result = content[i];
+					index = content[i].id;
+					break;
 				}
+			}
 
-				if (parseInt(index) === parseInt(idCheck)) {
-					delete result.password;
-					res.status(200).send(result).end('Success');
-				} else {
-					console.log('User has been not found');
-					res.status(404).end('User has been not found');
-				}
+			if (parseInt(index) === parseInt(idCheck)) {
+				delete result.password;
+				res.status(200).send(result).end('Success');
+			} else {
+				console.log('User has been not found');
+				res.status(404).end('User has been not found');
 			}
 		}
 	});
@@ -135,37 +131,33 @@ app.put('/users/:id', function(req, res) {
 		if (error) {
 			return res.status(500).end('Error');
 		} else {
-			if (data == '') {
-				res.status(404).send("User has been not found!");
-			} else {
-				content = JSON.parse(data);
 
-				for (let i = 0; i < content.length; i++) {
-					if (idCheck == content[i].id) {
-						tempNum = i;
-						break;
+			content = JSON.parse(data);
+			for (let i = 0; i < content.length; i++) {
+				if (idCheck == content[i].id) {
+					tempNum = i;
+					break;
+				}
+			}
+
+			if (parseInt(tempNum) === tempNum) {
+				let inputKey = Object.keys(req.body);
+				inputKey.forEach(function(key) {
+					content[tempNum][key] = req.body[key];
+				});
+
+				fs.writeFile('storage.json', JSON.stringify(content), function(error) {
+					if (error) {
+						console.log('error');
+						return res.status(500).end('Error');
+					} else {
+						console.log("User has been successfully updated.");
+						res.status(200).send(content[tempNum]).end('User has been successfully updated.');
 					}
-				}
-
-				if (parseInt(tempNum) === tempNum) {
-					let inputKey = Object.keys(req.body);
-					inputKey.forEach(function(key) {
-						content[tempNum][key] = req.body[key];
-					});
-
-					fs.writeFile('storage.json', JSON.stringify(content), function(error) {
-						if (error) {
-							console.log('error');
-							return res.status(500).end('Error');
-						} else {
-							console.log("User has been successfully updated.");
-							res.status(200).send(content[tempNum]).end('User has been successfully updated.');
-						}
-					});
-				} else {
-					console.log("User has been not found!");
-					return res.status(404).end('User has been not found');
-				}
+				});
+			} else {
+				console.log("User has been not found!");
+				return res.status(404).end('User has been not found');
 			}
 		}
 	});
@@ -180,34 +172,29 @@ app.delete('/users/:id', function(req, res) {
 		if (error) {
 			res.status(500).end('Error');
 		} else {
-			if (data == '') {
-				res.status(404).send("User has been not found!");
-			} else {
 
-				content = JSON.parse(data);
-
-				for (let i = 0; i < content.length; i++) {
-					if (idCheck == content[i].id) {
-						result = i;
-						break;
+			content = JSON.parse(data);
+			for (let i = 0; i < content.length; i++) {
+				if (idCheck == content[i].id) {
+					result = i;
+					break;
+				}
+			}
+			if (result !== null) {
+				content.splice(result, 1);
+				fs.writeFile('storage.json', JSON.stringify(content), function(error) {
+					if (error) {
+						return res.status(500).end('Error');
+					} else {
+						console.log("User has been deleted!");
+						return res.status(200).send({
+							"message": "User has been successfully removed."
+						}).end('Success');
 					}
-				}
-				if (result !== null) {
-					content.splice(result, 1);
-					fs.writeFile('storage.json', JSON.stringify(content), function(error) {
-						if (error) {
-							return res.status(500).end('Error');
-						} else {
-							console.log("User has been deleted!");
-							return res.status(200).send({
-								"message": "User has been successfully removed."
-							}).end('Success');
-						}
-					});
-				} else {
-					console.log("User has been not found!");
-					return res.status(404).end('User has been not found');
-				}
+				});
+			} else {
+				console.log("User has been not found!");
+				return res.status(404).end('User has been not found');
 			}
 		}
 	});
