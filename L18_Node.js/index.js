@@ -26,7 +26,6 @@ app.post('/users', function(req, res) {
 			for (let i = 0; i < arr.length; i++) {
 				if (arr[i].email == req.body.email) {
 					validation = false;
-					res.status(409).send('already exist');
 					break;
 				}
 			}
@@ -62,15 +61,12 @@ app.post('/users', function(req, res) {
 						console.log('error');
 						return res.status(500).end('Error');
 					} else {
-						console.log(arr);
 						console.log("Data saved successfully!");
 						res.status(201).end('Data saved successfully!');
-						// return res.status(201).end('Data saved successfully!');
 					}
 				});
 			} else {
-				validation = true;
-				console.log('User with this id or email already exist');
+				console.log('User with this email already exist');
 				res.status(409).end('User with this id already exist');
 			}
 		}
