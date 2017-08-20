@@ -45,15 +45,15 @@ app.post('/users', function(req, res) {
 					req.body.id = tempId;
 				}
 
-					for (key in req.body) {
-						if (key == 'password') {
-							req.body.password = crypto.createHmac('sha256', key)
-								.update(req.body.password)
-								.digest('hex');
-						}
-						// to check how password was ecrypted
-						console.log(req.body.password);
+				for (key in req.body) {
+					if (key == 'password') {
+						req.body.password = crypto.createHmac('sha256', key)
+							.update(req.body.password)
+							.digest('hex');
 					}
+					// to check how password was ecrypted
+					console.log(req.body.password);
+				}
 
 				arr.push(req.body);
 				fs.writeFile('storage.json', JSON.stringify(arr), function(error) {
@@ -77,11 +77,10 @@ app.get('/users', function(req, res) {
 	let content = [];
 
 	fs.readFile('storage.json', function read(error, data) {
-		if (error) {
-			console.error('Read with error');
-			return res.status(500).end('Error');
-		} else {
-			if (data == '') {
+			if (error) {
+				console.error('Read with error');
+				return res.status(500).end('Error');
+			} else if (data == '') {
 				res.status(200).send(['[]']);
 			} else {
 				content = JSON.parse(data);
@@ -90,9 +89,8 @@ app.get('/users', function(req, res) {
 				}
 				res.status(200).send(content).end('Success');
 			}
-		}
+		});
 	});
-});
 
 app.get('/users/:id', function(req, res) {
 	let content = [];
