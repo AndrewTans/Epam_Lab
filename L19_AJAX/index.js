@@ -1,5 +1,50 @@
+// varik  NORM
+var promise = getJSON('http://api.open-notify.org/astrsos.json');
+console.log(typeof promise); // -> “object”
+promise.then(function(data) {
+    console.log(data.message); // -> “success”
+}).catch(function(err){
+    console.log(err);
+});
+
+function getJSON(url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = () => resolve(JSON.parse(xhr.responseText));
+    xhr.onerror = (error) => reject(error);
+    xhr.send();
+  });
+};
+
+// varik 2
+// var promise = getJSON('http://api.open-notify.org/astros.json');
+// console.log(typeof promise); // -> “object”
+// promise.then(function(data) {
+//     console.log(data.message); // -> “success”
+// }, function(error) {
+//     console.log(error);
+// });
+
+
+// function getJSON(url) {
+//     return new Promise(function(resolve, reject) {
+//         fetch(url).then(function(response) {
+//             return response.json();
+//         }).then(function(returnedValue) {
+//             resolve(returnedValue);
+//         }).catch(function(err) {
+//             reject(err);
+//         });
+
+//     });
+// }
+
+/////////////////////////////////
+
+
 let scriptTag = document.createElement('script');
-scriptTag.setAttribute('src', 'http://marsweather.ingenology.com/v1/archive/?page=' + 1 + '&format=jsonp&callback=getData');
+scriptTag.setAttribute('src', 'http://marsweather.ingenology.com/v1/archive/?callback=getData&page=1&format=jsonp');
 
 let headTag = document.getElementsByTagName('head')[0];
 headTag.appendChild(scriptTag);
@@ -30,10 +75,10 @@ function updatedDate(inputDate) {
 
 function averageTemprature(min, max) {
     let calc = (max + min) / 2;
-    return Math.floor(calc) + '°F';
+    return Math.floor(calc) + '°С';
 }
 
-function appendFunc(tMin, tMax, date) {
+function appendFunc(tMin='null', tMax='null', date, wSpeed='- -', wDirection='- -') {
     let weatherBlock = document.getElementById('weather_block');
     let weatherWrapper;
     let title = [];
@@ -43,15 +88,25 @@ function appendFunc(tMin, tMax, date) {
     } else {
         weatherWrapper = document.getElementById('weatherWrapper');
     }
-
+console.log(wSpeed);
     title[0] = document.createElement('div');
-    title[0].innerHTML = `THE WEATHER ON MARS IS CURRENTY:`;
+    title[0].innerHTML = `THE WEATHER ON MARS IS:`;
     title[0].className = 'titleWeather';
     title[1] = document.createElement('div');
     title[1].className = 'tempratureStyle';
+    if (tMin == 'null' || tMax == 'null'){
+    title[1].innerHTML = 'NO INFO';
+    } else {
     title[1].innerHTML = averageTemprature(tMin, tMax);
-    title[2] = document.createElement('div');
-    title[2].innerHTML = updatedDate(date);
+    }
+    title[2] = document.createElement('span');
+    title[2].innerHTML = `Wind speed: ${wSpeed} & `;
+    title[2].className = 'windInfo';
+    title[3] = document.createElement('span');
+    title[3].innerHTML = `Wind direction: ${wDirection}`;
+    title[3].className = 'windInfo';
+    title[4] = document.createElement('div');
+    title[4].innerHTML = updatedDate(date);
 
     for (let i = 0; i < title.length; i++) {
         weatherWrapper.appendChild(title[i]);
@@ -85,7 +140,7 @@ function getData(data) {
     console.log(data.next);
     console.log(data.previous);
 
-    appendFunc(tembObj[counter].min_temp_fahrenheit, tembObj[counter].max_temp_fahrenheit, tembObj[counter].terrestrial_date);
+    appendFunc(tembObj[counter].mins_temp, tembObj[counter].maxs_temp, tembObj[counter].terrestrial_date);
 }
 
 document.getElementById('nav_buttons').addEventListener('click', chooseFunc);
@@ -107,7 +162,7 @@ function chooseFunc(event) {
             counter++
             console.log(counter);
             console.log(tembObj[counter]);
-            appendFunc(tembObj[counter].min_temp_fahrenheit, tembObj[counter].max_temp_fahrenheit, tembObj[counter].terrestrial_date);
+            appendFunc(tembObj[counter].min_temp, tembObj[counter].max_temp, tembObj[counter].terrestrial_date);
             loadAnim('block', 'none');
         }
     } else if (targetEl.getAttribute('class') === 'next') {
@@ -122,7 +177,7 @@ function chooseFunc(event) {
             console.log(counter);
             console.log(tembObj[counter]);
             clearFunc();
-            appendFunc(tembObj[counter].min_temp_fahrenheit, tembObj[counter].max_temp_fahrenheit, tembObj[counter].terrestrial_date);
+            appendFunc(tembObj[counter].min_temp, tembObj[counter].max_temp, tembObj[counter].terrestrial_date);
             loadAnim('block', 'none');
         } else {
             console.log('WOOPS');

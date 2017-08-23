@@ -12,11 +12,12 @@
     color: white;
     text-align: center;
     margin: auto;
-    width: 300px;
+    width: 320px;
     background-image: url('img/wallpaper-mars.jpg');
     background-size: cover;
     border: 1px solid black;
     font-weight: 700;
+    text-shadow: 1px 1px 1px black;
 }
 
 .titleWeather {
@@ -25,7 +26,13 @@
 }
 
 .tempratureStyle {
-    font-size: 50px;
+    font-size: 57px;
+}
+
+.windInfo{
+  margin: 5px 0 5px 0;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 #nav_buttons {
