@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    font-family: Helvetica;
+}
+
+#weather_block {
+    padding: 5px;
+    font-size: 21px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    width: 300px;
+    background-image: url('img/wallpaper-mars.jpg');
+    background-size: cover;
+    border: 1px solid black;
+    font-weight: 700;
+}
+
+.titleWeather {
+    padding: 5px;
+    font-size: 23px;
+}
+
+.tempratureStyle {
+    font-size: 50px;
+}
+
+#nav_buttons {
+    margin-top: 5px;
+    border-top: 1px solid white;
+}
+
+.prev, .next{
+  cursor: pointer;
+}
+
+#anim {
+  margin: 100px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+#anim > div {
+  background-color: #333;
+  height: 100%;
+  width: 8px;
+  padding: 5px;
+  margin: 1px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+#anim .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+#anim .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
