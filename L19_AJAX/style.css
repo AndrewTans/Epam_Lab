@@ -17,7 +17,7 @@
     background-size: cover;
     border: 1px solid black;
     font-weight: 700;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 2px 1px 1px black;
 }
 
 .titleWeather {
@@ -40,8 +40,14 @@
     border-top: 1px solid white;
 }
 
-.prev, .next{
-  cursor: pointer;
+#nav_buttons button{
+  font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+    text-shadow: 1px 1px 1px black;
+    cursor: pointer;
 }
 
 #anim {
