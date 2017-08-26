@@ -1,3 +1,5 @@
+// Promise
+
 var promise = getJSON('http://api.open-notify.org/astros.json');
 console.log(typeof promise);
 promise.then(function(data) {
@@ -8,19 +10,20 @@ promise.then(function(data) {
 
 function getJSON(url) {
 	return new Promise(function(resolve, reject) {
-		fetch(url).then(function(response) {
-			return response.json();
-		}).then(function(returnedValue) {
-			resolve(returnedValue);
-		}).catch(function(err) {
-			reject(err);
-		});
-
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState != 4) return;
+			if (xhr.status != 200) {
+				return reject('Error ' + xhr.status + ': ' + xhr.statusText);
+			}
+			resolve(JSON.parse(xhr.responseText));
+		}
+		xhr.send();
 	});
 }
 
-/////////////////////////////////
-
+///////////////////////////////////
 
 let scriptTag = document.createElement('script');
 scriptTag.setAttribute('src', 'http://marsweather.ingenology.com/v1/archive/?callback=getData&page=1&format=jsonp');
@@ -32,8 +35,7 @@ let counter = 0;
 let pageNumPrev = null;
 let pageNumNext = null;
 let nextPage = true;
-let max_in_arr;
-let tembObj;
+let max_in_arr, tembObj, success;
 
 loadAnim('none', 'block');
 
@@ -43,7 +45,7 @@ function updatedDate(inputDate) {
 	let monthNames = ["January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"
 	];
-	
+
 	time = new Date(tempArr[0], tempArr[1], tempArr[2]);
 	day = time.getDate();
 	day = day < 10 ? '0' + day : day;
@@ -96,6 +98,17 @@ function appendFunc(tMin = 'null', tMax = 'null', date, wSpeed = '- -', wDirecti
 
 }
 
+// if data coudn't load for 3.5 sec
+function errorFunc() {
+	setTimeout(function() {
+		if (!success) {
+			loadAnim('block', 'none');
+			document.getElementById('weather_block').innerHTML = `Sorry, but data couldn't be loaded`;
+		}
+	}, 3500);
+}
+errorFunc();
+
 function clearFunc() {
 	document.getElementById('weatherWrapper').innerHTML = '';
 	loadAnim('none', 'block');
@@ -109,7 +122,7 @@ function clearScriptTag(url) {
 }
 
 function getData(data) {
-
+	success = true;
 	loadAnim('block', 'none');
 	pageNumPrev = data.next;
 	pageNumNext = data.previous;
@@ -127,7 +140,9 @@ function chooseFunc(event) {
 	if (targetEl.getAttribute('class') === 'prev') {
 		clearFunc();
 		if (counter + 1 == max_in_arr) {
+			success = false;
 			clearScriptTag(pageNumPrev);
+			errorFunc();
 			counter = 0;
 			nextPage = false;
 		} else {
@@ -137,8 +152,10 @@ function chooseFunc(event) {
 		}
 	} else if (targetEl.getAttribute('class') === 'next') {
 		if (counter === 0 && pageNumNext != null) {
+			success = false;
 			clearFunc();
 			clearScriptTag(pageNumNext)
+			errorFunc();
 			counter = max_in_arr - 1;
 			nextPage = false;
 		} else if (!counter - 1 < 0) {
