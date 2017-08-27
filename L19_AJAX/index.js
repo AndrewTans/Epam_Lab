@@ -139,7 +139,6 @@ function chooseFunc(event) {
 	let directionPrev = true;
 	let targetEl = event.target || event.srcElement;
 
-	clearTimeout(timeout);
 	if (targetEl.getAttribute('class') === 'prev') {
 		clearFunc();
 		if (counter + 1 == max_in_arr) {
