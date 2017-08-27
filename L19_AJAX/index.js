@@ -56,9 +56,9 @@ function averageTemprature(min, max) {
 	return Math.floor(calc) + '°С';
 }
 
-function appendFunc(tMin = 'null', tMax = 'null', date, wSpeed = '- -', wDirection = '- -') {
-	wSpeed = wSpeed == null ? '- -' : wSpeed;
-	wDirection = wDirection == null ? '- -' : wDirection;
+function appendFunc(tMin = 'null', tMax = 'null', date, wSpeed = '--', wDirection = '--') {
+	wSpeed = wSpeed == null ? '--' : wSpeed;
+	wDirection = wDirection == null ? '--' : wDirection;
 	let weatherBlock = document.getElementById('weather_block');
 	let weatherWrapper;
 	let title = [];
