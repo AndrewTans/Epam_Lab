@@ -1,0 +1,185 @@
+* {
+    font-family: Helvetica;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.container {
+    margin: auto;
+    text-align: center;
+}
+
+.game_block {
+    width: 360px;
+    margin: auto;
+    text-align: center;
+}
+
+.game_info {
+    height: 80px;
+    font-size: 25px;
+    clear: both;
+}
+
+.timer_block {
+    display: block;
+    float: left;
+}
+
+.time_name {
+    font-weight: 700;
+    color: #b9b9b9;
+}
+
+.timer_inside span {
+    font-weight: 700;
+    color: #808080;
+    font-size: 20px;
+}
+
+.steps {
+    display: block;
+    float: right;
+}
+
+.steps_name {
+    font-weight: 700;
+    color: #b9b9b9;
+}
+
+.steps_inside span {
+    font-weight: 700;
+    color: #808080;
+    font-size: 20px;
+}
+
+#blocks {
+    position: relative;
+    width: 365px;
+    height: 365px;
+    margin: auto;
+    text-align: center;
+}
+
+.block {
+    position: absolute;
+    border: 1px solid white;
+    background: #4a90e2;
+    border-radius: 10px;
+    font-size: 50px;
+    color: white;
+    padding-top: 15px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.block_behind {
+    position: absolute;
+    border: 1px solid white;
+    background: #ededed;
+    border-radius: 10px;
+    font-size: 50px;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+.empty {
+    position: absolute;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 50px;
+    padding-top: 15px;
+}
+
+.buttons {
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+.new_game {
+    margin: auto;
+    font-size: 25px;
+    font-weight: 700;
+    display: block;
+    padding: 20px;
+    color: #4a4a4a;
+    background: #50e3c2;
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.win {
+    display: block;
+    margin-top: 5px;
+    padding: 20px;
+    width: 100%;
+    color: #50e3c2;
+    font-size: 25px;
+    font-weight: 700;
+    background: white;
+    border: 3px solid #50e3c2;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.anim {
+    border: 1px solid #175cad;
+    box-shadow: 0 0 10px #175cad;
+}
+
+.win_block{
+	position: absolute;
+	height: 250px;
+	width: 300px;
+	color: #50e3c2;
+	background: white;
+	padding: 15px 10px 0 10px;
+	font-size: 25px;
+	font-weight: 700;
+	text-align: center;
+	top: 12%;
+	left: 8%;
+	border-radius: 7px;
+	box-shadow: 1px 1px 20px black;
+	z-index: 2;
+}
+
+.win_block:after{
+	color:#4a4a4a;
+	position: absolute;
+	top: 130px;
+	left: 0;
+	content: 'Please, press "NEW GAME" to play again!';
+	font-size: 18px;
+}
+
+.win_block div:nth-child(2){
+	margin-top: 7px;
+	font-size: 15px;
+	color:#4a4a4a;
+}
+
+.win_block div:nth-child(3){
+	font-size: 15px;
+	color:#4a4a4a;
+}
+
+.win_close{
+	position: absolute;
+	top: 185px;
+	left: 105px;
+	padding-top: 8px;
+	height: 45px;
+	width: 90px;
+	background: #4a90e2;
+	color: white;
+	border-radius: 7px;
+}
+
+.win_close:after{
+	content: 'OK';
+	font-size: 25px;
+	cursor: pointer;
+}
