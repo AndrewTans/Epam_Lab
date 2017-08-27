@@ -109,7 +109,7 @@ function errorFunc() {
 			loadAnim('block', 'none');
 			document.getElementById('weather_block').innerHTML = `Sorry, but data couldn't be loaded`;
 		}
-	}, 3000);
+	}, 3500);
 }
 
 function clearFunc() {
