@@ -91,7 +91,6 @@ $(document).ready(function() {
                     left: `-=${size}`
                 });
             }
-
             checkWin();
         }
     });
@@ -115,7 +114,6 @@ $(document).ready(function() {
             cont = true;
             pause = false;
         });
-
     }
 
     function timerFunc() {
