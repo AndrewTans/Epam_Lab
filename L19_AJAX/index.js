@@ -35,7 +35,7 @@ let counter = 0;
 let pageNumPrev = null;
 let pageNumNext = null;
 let nextPage = true;
-let max_in_arr, tembObj, success;
+let max_in_arr, tembObj, success, timeout;
 
 loadAnim('none', 'block');
 
@@ -98,14 +98,15 @@ function appendFunc(tMin = 'null', tMax = 'null', date, wSpeed = '- -', wDirecti
 
 }
 
-// if data coudn't load for 3.5 sec
+// if data coudn't load for 3.0 sec
 function errorFunc() {
-	setTimeout(function() {
+
+	timeout = setTimeout(function() {
 		if (!success) {
 			loadAnim('block', 'none');
 			document.getElementById('weather_block').innerHTML = `Sorry, but data couldn't be loaded`;
 		}
-	}, 3500);
+	}, 3000);
 }
 errorFunc();
 
@@ -123,6 +124,7 @@ function clearScriptTag(url) {
 
 function getData(data) {
 	success = true;
+	clearTimeout(timeout);
 	loadAnim('block', 'none');
 	pageNumPrev = data.next;
 	pageNumNext = data.previous;
@@ -137,6 +139,7 @@ function chooseFunc(event) {
 	let directionPrev = true;
 	let targetEl = event.target || event.srcElement;
 
+	clearTimeout(timeout);
 	if (targetEl.getAttribute('class') === 'prev') {
 		clearFunc();
 		if (counter + 1 == max_in_arr) {
