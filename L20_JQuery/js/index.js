@@ -25,7 +25,12 @@ $(document).ready(function() {
     // to generate blocks with numbers and check if its need to be win combination or random
     function generate(winComb = 'false') {
         let arrNums = [];
+        let index = 0;
+        
         stepCount(0);
+        $('#blocks').html('');
+        backgroundBlocks();
+
         arrNums = arr.map(function(el) {
             return el;
         });
@@ -39,10 +44,6 @@ $(document).ready(function() {
             });
         }
 
-        $('#blocks').html('');
-        backgroundBlocks();
-
-        let index = 0;
         for (let row = 0; row <= 3; row++) {
             for (let col = 0; col <= 3; col++) {
 
