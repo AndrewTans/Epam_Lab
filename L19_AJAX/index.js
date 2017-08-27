@@ -37,7 +37,10 @@ let pageNumNext = null;
 let nextPage = true;
 let max_in_arr, tembObj, success, timeout;
 
+
 loadAnim('none', 'block');
+errorFunc();
+
 
 function updatedDate(inputDate) {
 	let tempArr = inputDate.split('-');
@@ -108,7 +111,6 @@ function errorFunc() {
 		}
 	}, 3000);
 }
-errorFunc();
 
 function clearFunc() {
 	document.getElementById('weatherWrapper').innerHTML = '';
