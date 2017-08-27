@@ -44,17 +44,11 @@ errorFunc();
 
 function updatedDate(inputDate) {
 	let tempArr = inputDate.split('-');
-	let time, year, month, day, hours, minutes, mid;
 	let monthNames = ["January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"
 	];
 
-	time = new Date(tempArr[0], tempArr[1], tempArr[2]);
-	day = time.getDate();
-	day = day < 10 ? '0' + day : day;
-	year = time.getFullYear();
-
-	return (`UPDATED ON ${monthNames[time.getMonth()-1].toUpperCase()} ${day}, ${year}`);
+	return (`UPDATED ON ${monthNames[parseInt(tempArr[1])-1].toUpperCase()} ${tempArr[2]}, ${tempArr[0]}`);
 }
 
 function averageTemprature(min, max) {
