@@ -101,9 +101,8 @@ function appendFunc(tMin = 'null', tMax = 'null', date, wSpeed = '- -', wDirecti
 
 }
 
-// if data coudn't load for 3.0 sec
+// if data coudn't load for 3.5 sec
 function errorFunc() {
-
 	timeout = setTimeout(function() {
 			loadAnim('block', 'none');
 			document.getElementById('weather_block').innerHTML = `Sorry, but data couldn't be loaded`;
@@ -123,7 +122,6 @@ function clearScriptTag(url) {
 }
 
 function getData(data) {
-
 	clearTimeout(timeout);
 	loadAnim('block', 'none');
 	pageNumPrev = data.next;
