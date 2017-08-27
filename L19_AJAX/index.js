@@ -35,7 +35,7 @@ let counter = 0;
 let pageNumPrev = null;
 let pageNumNext = null;
 let nextPage = true;
-let max_in_arr, tembObj, success, timeout;
+let max_in_arr, tembObj, timeout;
 
 
 loadAnim('none', 'block');
@@ -105,10 +105,8 @@ function appendFunc(tMin = 'null', tMax = 'null', date, wSpeed = '- -', wDirecti
 function errorFunc() {
 
 	timeout = setTimeout(function() {
-		if (!success) {
 			loadAnim('block', 'none');
 			document.getElementById('weather_block').innerHTML = `Sorry, but data couldn't be loaded`;
-		}
 	}, 3500);
 }
 
@@ -125,7 +123,7 @@ function clearScriptTag(url) {
 }
 
 function getData(data) {
-	success = true;
+
 	clearTimeout(timeout);
 	loadAnim('block', 'none');
 	pageNumPrev = data.next;
@@ -145,7 +143,6 @@ function chooseFunc(event) {
 	if (targetEl.getAttribute('class') === 'prev') {
 		clearFunc();
 		if (counter + 1 == max_in_arr) {
-			success = false;
 			clearScriptTag(pageNumPrev);
 			errorFunc();
 			counter = 0;
@@ -157,7 +154,6 @@ function chooseFunc(event) {
 		}
 	} else if (targetEl.getAttribute('class') === 'next') {
 		if (counter === 0 && pageNumNext != null) {
-			success = false;
 			clearFunc();
 			clearScriptTag(pageNumNext)
 			errorFunc();
