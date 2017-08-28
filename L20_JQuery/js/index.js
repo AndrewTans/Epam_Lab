@@ -118,9 +118,10 @@ $(document).ready(function() {
     }
 
     function timerFunc() {
-        time = '00:00';
         let m = '00';
         let s = 0;
+        time = '00:00';
+        
         return function() {
             if (s >= 59) {
                 s = 0;
