@@ -14,10 +14,10 @@ $(document).ready(function() {
     function backgroundBlocks() {
         for (let row = 0; row <= 3; row++) {
             for (let col = 0; col <= 3; col++) {
-                $('#blocks').append(`<div class="block_behind bl-${row}-${col}"></div>`);
-                $(`.bl-${row}-${col}`).css('height', `${size}px`).css('width', `${size}px`);
-                $(`.bl-${row}-${col}`).css('top', `${row*size}px`);
-                $(`.bl-${row}-${col}`).css('left', `${col*size}px`);
+                $('#blocks').append(`<div class="block_behind bl_row${row}_col${col}"></div>`);
+                $(`.bl_row${row}_col${col}`).css('height', `${size}px`).css('width', `${size}px`);
+                $(`.bl_row${row}_col${col}`).css('top', `${row*size}px`);
+                $(`.bl_row${row}_col${col}`).css('left', `${col*size}px`);
             }
         }
     }
@@ -47,8 +47,8 @@ $(document).ready(function() {
         for (let row = 0; row <= 3; row++) {
             for (let col = 0; col <= 3; col++) {
 
-                $('#blocks').append(`<div id="block-${row}-${col}"></div>`);
-                blocks[index] = $(`#block-${row}-${col}`);
+                $('#blocks').append(`<div id="block_row${row}_col${col}"></div>`);
+                blocks[index] = $(`#block_row${row}_col${col}`);
 
                 if (arrNums[index] === '') {
                     blocks[index].addClass('empty');
