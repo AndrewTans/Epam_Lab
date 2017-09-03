@@ -1,4 +1,5 @@
 let infoObj = {
+
 	lastVisitDate: dateFunc(Math.floor(Math.random() * 1000)),
 	globalDiscount: Math.floor(Math.random() * 10),
 	nightDiscount: Math.floor(Math.random() * 50),
@@ -8,7 +9,13 @@ let infoObj = {
 }
 
 function dateFunc(input) {
-	let dateObj = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), new Date().getHours() - input, new Date().getMinutes());
+
+	let dateObj = new Date(new Date().getFullYear(),
+						   new Date().getMonth(),
+						   new Date().getDate(),
+						   new Date().getHours() - input,
+						   new Date().getMinutes());
+
 	let month = dateObj.getMonth() + 1;
 	let day = dateObj.getDate();
 	let year = dateObj.getFullYear();
@@ -20,6 +27,7 @@ function dateFunc(input) {
 class User {
 
 	constructor(obj) {
+
 		this.lastVisitDate = obj.lastVisitDate;
 		this.globalDiscount = obj.globalDiscount;
 		this.nightDiscount = obj.nightDiscount;
@@ -38,6 +46,7 @@ function getDiscount(obj) {
 	}
 
 	this.checkDiscount = () => {
+
 		let calcDiscount = 0;
 		if (new Date().getHours() >= 23 || new Date().getHours() <= 5) {
 			this.discount += this.nightDiscount
@@ -61,6 +70,7 @@ function getBonus(obj) {
 	}
 
 	this.checkLastVisit = () => {
+		
 		for (let i = 0; i < 240; i++) {
 			if (dateFunc(i) === this.lastVisitDate) {
 				this.bonus += Math.floor(Math.random() * 10);
