@@ -1,0 +1,8 @@
+{
+  "script": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "webpack": "^3.5.5"
+  }
+}

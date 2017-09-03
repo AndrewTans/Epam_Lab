@@ -1,0 +1,22 @@
+* {
+	font-family: Helvetica;
+	margin-top: 1px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #282828;
+}
+
+#container {
+	text-align: center;
+	margin: auto;
+}
+
+#calc_main {
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+	background: #e2e2e2;
+	width: 350px;
+	border-radius: 5px;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "webpack_homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.0",
+    "html-webpack-plugin": "^2.26.0",
+    "node-sass": "^4.4.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "stylelint": "^8.0.0",
+    "stylelint-webpack-plugin": "^0.9.0",
+    "ts-loader": "^2.3.4",
+    "tslint": "^5.7.0",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC"
+}
