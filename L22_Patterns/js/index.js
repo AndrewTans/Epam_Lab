@@ -11,10 +11,10 @@ let infoObj = {
 function dateFunc(input) {
 
 	let dateObj = new Date(new Date().getFullYear(),
-						   new Date().getMonth(),
-						   new Date().getDate(),
-						   new Date().getHours() - input,
-						   new Date().getMinutes());
+		new Date().getMonth(),
+		new Date().getDate(),
+		new Date().getHours() - input,
+		new Date().getMinutes());
 
 	let month = dateObj.getMonth() + 1;
 	let day = dateObj.getDate();
@@ -70,7 +70,7 @@ function getBonus(obj) {
 	}
 
 	this.checkLastVisit = () => {
-		
+
 		for (let i = 0; i < 240; i++) {
 			if (dateFunc(i) === this.lastVisitDate) {
 				this.bonus += Math.floor(Math.random() * 10);
