@@ -4,7 +4,6 @@ export default {
 	resultFunc: resultFunc
 };
 
-calculate.calcFunc(1, 2, calculate.add);
 interfaceModule.interfaceGenerator();
 
 function resultFunc() {

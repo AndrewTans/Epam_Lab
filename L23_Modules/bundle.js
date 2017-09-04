@@ -87,7 +87,6 @@ __WEBPACK_IMPORTED_MODULE_0__result_js__["a" /* default */].resultFunc();
 	resultFunc: resultFunc
 });
 
-__WEBPACK_IMPORTED_MODULE_0__calculate__["a" /* default */].calcFunc(1, 2, __WEBPACK_IMPORTED_MODULE_0__calculate__["a" /* default */].add);
 __WEBPACK_IMPORTED_MODULE_1__interface_js__["a" /* default */].interfaceGenerator();
 
 function resultFunc() {
