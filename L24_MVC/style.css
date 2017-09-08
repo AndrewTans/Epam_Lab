@@ -1,0 +1,130 @@
+body {
+    padding: 20px;
+    font: normal 14px/1.2 Arial, sans-serif; 
+}
+
+.hidden {
+    display: none !important;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+
+/**************/
+/* Names list */
+.names {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 300px;
+    float: left;
+    margin-right: 2px;
+}
+.names li {
+    background: #00BCD4;
+    margin: 0 0 1px 2px;
+    padding: 10px 10px 10px 5px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+}
+
+.arrows_block{
+        margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 25px;
+    float: left;
+    margin-right: 10px;
+}
+
+.arrows_block li {
+    margin: 0 0 1px 0;
+    padding: 10px 0;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+.arrows {
+	position: relative;
+	background: #a5c7ff;
+	padding: 10px;
+	padding-left: 35px;
+	width: 25px;
+	border-right: 1px solid white;
+}
+
+.arrow-up {
+	position: absolute;
+	top: 7px;
+	left: 8px;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #4286f4;
+}
+
+.arrow-down {
+	position: absolute;
+	top: 20px;
+	left: 8px;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #4286f4;
+}
+
+/***************/
+/* Scores list */
+.scores {
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+    margin-right: 30px;
+}
+.scores li {
+    margin: 0 0 1px 0;
+    padding: 10px 0;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    background: #727272;
+    text-align: center;
+}
+.scores span {
+    pointer-events: none;
+}
+.score-input {
+    width: 20px;
+    height: 9px;
+    text-align: center;
+}
+
+/***********/
+/* Profile */
+.profile {
+    float: left;
+    width: 200px;
+    background: #448AFF;
+    padding: 0 10px;
+    text-align: center;
+}
+.profile img {
+    display: block;
+    margin: 10px auto 10px; 
+}
+.profile h3 {
+    margin: 0 0 10px;
+}
+
+.afterList{
+	padding-top: 10px;
+}
