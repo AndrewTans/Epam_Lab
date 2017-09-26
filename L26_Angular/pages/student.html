@@ -1,0 +1,13 @@
+    <button type="button" ui-sref="list">Back to List</button>
+    <br>
+    <img src="{{image}}" alt="" class="image">
+    <div ng-show="!show">
+        {{name}} | {{surname}} | {{birthDate}} | {{phone}}
+    </div>
+    <br>
+    <input type="text" ng-show="show" ng-model="name">
+    <input type="text" ng-show="show" ng-model="surname">
+    <input type="text" ng-show="show" ng-model="birthDate">
+    <input type="text" ng-show="show" ng-model="phone">
+    <button type="button" ng-click="editFunc()" ng-show="!show">edit</button>
+    <button type="button" ng-click="close()" ng-show="show">save</button>

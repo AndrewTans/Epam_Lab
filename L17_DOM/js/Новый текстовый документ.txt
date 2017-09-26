@@ -1,0 +1,64 @@
+[{
+		name: 'Liudmyla',
+		lastName: 'Bashta',
+		img: 'https://www.plagiarismtoday.com/wp-content/uploads/2016/07/nyancat-385-sized.jpg',
+		coverImg: 'http://i2.kym-cdn.com/photos/images/facebook/000/243/865/8f3.jpg',
+		email: 'liudmyla.bashta@gmail.com',
+		skills: ['Javascript', 'HTML', 'CSS']
+	}, {
+		name: 'Roman',
+		lastName: 'Chapkailo',
+		img: 'https://s-media-cache-ak0.pinimg.com/736x/76/47/9d/76479dd91dc55c2768ddccfc30a4fbf5--pikachu-halloween-costume-diy-halloween-costumes.jpg',
+		coverImg: 'http://fbcovershub.com/media/cover-250-beautiful-seaside-fb-cover-1388015476.jpg',
+		email: 'romafromukraine@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Khrystyna',
+		lastName: 'Dalivska',
+		img: 'https://ichef-1.bbci.co.uk/news/660/cpsprodpb/169F6/production/_91026629_gettyimages-519508400.jpg',
+		coverImg: 'https://sky.easypano.com/EPSUpload2/Pano/2017/04-12/12/636275969355928205/560_315.jpg',
+		email: 'khrystynadalivska@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Ivan',
+		lastName: 'Gnatyshyn',
+		img: 'https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg',
+		coverImg: 'https://static.pexels.com/photos/9135/sky-clouds-blue-horizon.jpg',
+		email: 'gnatyshyn.ivan@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Andrii',
+		lastName: "Hun'ka",
+		img: 'https://cdn.pixabay.com/photo/2017/01/06/19/15/soap-bubble-1958650_960_720.jpg',
+		coverImg: 'http://i.dailymail.co.uk/i/pix/2017/01/16/20/332EE38400000578-4125738-image-a-132_1484600112489.jpg',
+		email: 'andriyggg@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Maksym',
+		lastName: 'Izmailov',
+		img: 'https://cdn.pixabay.com/photo/2016/04/17/10/38/doberman-1334497_960_720.jpg',
+		coverImg: 'https://cdn.pixabay.com/photo/2016/03/06/05/03/sunrise-1239728_960_720.jpg',
+		email: 'maksym.izmailov.lv@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Taras',
+		lastName: 'Kharkhalis',
+		img: 'https://cdn.pixabay.com/photo/2014/03/29/09/17/cat-300572_960_720.jpg',
+		coverImg: 'https://static.pexels.com/photos/9135/sky-clouds-blue-horizon.jpg',
+		email: 'taraskharkhalis97@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Khrystia',
+		lastName: 'Kondratovych',
+		img: 'https://www.webdesign.org/img_articles/21726/17.jpg',
+		coverImg: 'https://cdn.pixabay.com/photo/2016/10/13/10/37/dandelion-1737324_960_720.jpg',
+		email: 'khrustyk@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}, {
+		name: 'Iuliia',
+		lastName: 'Kurylo',
+		img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSljkhtuNjmEz2YeriPLPdntnTKNAwXFOAQSx1u6yAkPhYYw8-Pnw',
+		coverImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT-qepvLICH8tsGuZqbZwpO7rk5afp274Lu4bgjai8Uo30gDKifA',
+		email: 'iulia.kurylo@gmail.com',
+		skills: ['JavaScript', 'HTML', 'CSS']
+	}];
